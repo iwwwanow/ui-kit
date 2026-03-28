@@ -129,7 +129,7 @@ pre {
   background-color: var(--LIGHT);
 }
 code {
-  font-size: 1.6em;
+  font-size: 1em;           /* match surrounding text — no compounding */
   font-family: "Roboto Mono", monospace;
   color: var(--DARK);
 }
@@ -846,6 +846,7 @@ kbd {
 .divider-label {
   display: flex;
   align-items: center;
+  width: 100%;
   gap: 8px;
   font-size: 1.2rem;
   color: var(--MEDIUM);

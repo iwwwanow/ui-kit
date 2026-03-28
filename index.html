@@ -125,6 +125,7 @@
       padding: 24px;
       margin-bottom: 0;
       background: var(--WHITE);
+      font-size: 1.6rem; /* anchor: без этого a/pre/etc наследуют 10px от html 62.5% */
     }
     .demo-row {
       display: flex;
@@ -167,9 +168,10 @@
     .color-val  { font-size: 1.1rem; font-family: "Roboto Mono", monospace; color: var(--MEDIUM); }
 
     /* Typography preview */
-    .typo-row { display: flex; flex-direction: column; gap: 20px; }
-    .typo-item { display: flex; align-items: baseline; gap: var(--GRID-GAP); }
-    .typo-lbl  { font-size: 1.1rem; font-family: "Roboto Mono", monospace; color: var(--MEDIUM); min-width: 64px; flex-shrink: 0; }
+    .typo-row { display: flex; flex-direction: column; gap: 24px; }
+    .typo-item { display: flex; align-items: flex-start; gap: var(--GRID-GAP); padding-bottom: 24px; border-bottom: 1px solid var(--LIGHT); }
+    .typo-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .typo-lbl  { font-size: 1.1rem; font-family: "Roboto Mono", monospace; color: var(--MEDIUM); min-width: 64px; flex-shrink: 0; padding-top: 2px; }
 
     /* Range demo */
     .range-row { display: flex; align-items: center; gap: var(--GRID-GAP); }
@@ -266,8 +268,10 @@
     <a class="sb-link" data-t="avatars">Avatars</a>
     <a class="sb-link" data-t="toast">Toast</a>
     <a class="sb-link" data-t="breadcrumbs">Breadcrumbs</a>
-    <a class="sb-link" data-t="tooltips">Tooltips</a>
-    <a class="sb-link" data-t="misc">Misc</a>
+    <a class="sb-link" data-t="misc">Tooltips</a>
+    <a class="sb-link" data-t="kbd">Kbd</a>
+    <a class="sb-link" data-t="spinner">Spinner</a>
+    <a class="sb-link" data-t="divider">Divider label</a>
   </div>
 </nav>
 
@@ -319,19 +323,18 @@
   <p class="sc-desc">Roboto Condensed. Base <code>font-size: 62.5%</code> on html — 1rem = 10px.</p>
   <div class="demo">
     <div class="typo-row">
-      <div class="typo-item"><span class="typo-lbl">h1</span><h1 style="font-size:4.8em;margin:0">Heading One</h1></div>
-      <div class="typo-item"><span class="typo-lbl">h2</span><h2 style="margin:0">Heading Two</h2></div>
-      <div class="typo-item"><span class="typo-lbl">h3</span><h3 style="margin:0">Heading Three</h3></div>
-      <div class="typo-item"><span class="typo-lbl">h4</span><h4>Heading Four — 700</h4></div>
-      <div class="typo-item"><span class="typo-lbl">h5</span><h5>Heading Five — 400</h5></div>
-      <div class="typo-item"><span class="typo-lbl">h6</span><h6>Heading Six — 300 italic</h6></div>
-      <hr style="border:none;border-top:1px solid var(--LIGHT)">
-      <div class="typo-item"><span class="typo-lbl">p</span><p style="margin:0">Regular paragraph. The quick brown fox jumps over the lazy dog.</p></div>
-      <div class="typo-item"><span class="typo-lbl">a</span><a href="#">Link — BLUE color, underline on hover</a></div>
-      <div class="typo-item"><span class="typo-lbl">code</span><code>inline_code("example")</code></div>
-      <div class="typo-item" style="align-items:flex-start">
-        <span class="typo-lbl" style="padding-top:4px">pre</span>
-        <pre style="flex:1;margin:0">function render(el) {
+      <div class="typo-item"><span class="typo-lbl">h1</span><h1 style="font-size:4.8em">Heading One</h1></div>
+      <div class="typo-item"><span class="typo-lbl">h2</span><h2>Heading Two</h2></div>
+      <div class="typo-item"><span class="typo-lbl">h3</span><h3>Heading Three</h3></div>
+      <div class="typo-item"><span class="typo-lbl">h4</span><h4>Heading Four — bold</h4></div>
+      <div class="typo-item"><span class="typo-lbl">h5</span><h5>Heading Five — regular</h5></div>
+      <div class="typo-item"><span class="typo-lbl">h6</span><h6>Heading Six — light italic</h6></div>
+      <div class="typo-item"><span class="typo-lbl">p</span><p>Regular paragraph. The quick brown fox jumps over the lazy dog.</p></div>
+      <div class="typo-item"><span class="typo-lbl">a</span><a href="#">Link — BLUE, underline on hover</a></div>
+      <div class="typo-item"><span class="typo-lbl">code</span><p>Use <code>git commit -m "msg"</code> then push. Inline code matches parent size.</p></div>
+      <div class="typo-item">
+        <span class="typo-lbl">pre</span>
+        <pre style="flex:1">function render(el) {
   return el.outerHTML;
 }</pre>
       </div>
@@ -896,53 +899,138 @@
   </div>
 </section>
 
-<!-- Tooltips, Spinners, Kbd, Divider -->
+<!-- Tooltip -->
 <section id="misc" class="sc">
-  <h2 class="sc-title">Misc</h2>
-  <p class="sc-desc">Tooltip · Spinner · Kbd · Divider label</p>
-  <div class="demo">
-
-    <div class="form-label" style="margin-bottom:12px">Tooltip (pure CSS hover)</div>
-    <div class="demo-row" style="padding-bottom:24px;margin-bottom:16px;border-bottom:1px solid var(--LIGHT)">
+  <h2 class="sc-title">Tooltip</h2>
+  <p class="sc-desc">Чистый CSS — никакого JS. Оборачиваешь триггер в <code>.tooltip-wrapper</code>, внутрь кладёшь <code>.tooltip</code>.</p>
+  <div class="demo" style="padding-top:36px">
+    <div class="demo-row">
       <div class="tooltip-wrapper">
         <button class="btn btn-default">Hover me</button>
-        <div class="tooltip">This is a tooltip</div>
+        <div class="tooltip">Plain tooltip</div>
       </div>
       <div class="tooltip-wrapper">
-        <button class="btn btn-primary">Hover</button>
-        <div class="tooltip">Action description</div>
+        <button class="btn btn-primary">Save</button>
+        <div class="tooltip">Ctrl + S</div>
+      </div>
+      <div class="tooltip-wrapper">
+        <span style="font-size:1.4rem;color:var(--MEDIUM);cursor:default;border-bottom:1px dashed var(--LIGHT)">что это?</span>
+        <div class="tooltip">Подсказка на любом элементе</div>
       </div>
       <div class="tooltip-wrapper">
         <kbd>⌘ K</kbd>
         <div class="tooltip">Command palette</div>
       </div>
     </div>
+  </div>
+  <div class="snip"><span class="tg">&lt;div</span> <span class="at">class</span>=<span class="vl">"tooltip-wrapper"</span><span class="tg">&gt;</span>
+  <span class="tg">&lt;button</span> <span class="at">class</span>=<span class="vl">"btn btn-default"</span><span class="tg">&gt;</span>Save<span class="tg">&lt;/button&gt;</span>
+  <span class="tg">&lt;div</span> <span class="at">class</span>=<span class="vl">"tooltip"</span><span class="tg">&gt;</span>Ctrl + S<span class="tg">&lt;/div&gt;</span>
+<span class="tg">&lt;/div&gt;</span>
 
-    <div class="form-label" style="margin-bottom:12px">Spinner</div>
-    <div class="demo-row" style="align-items:center;margin-bottom:16px;padding-bottom:16px;border-bottom:1px solid var(--LIGHT)">
+<span class="kw">/* Работает на ЛЮБОМ элементе — кнопке, тексте, иконке, kbd */</span>
+<span class="tg">&lt;div</span> <span class="at">class</span>=<span class="vl">"tooltip-wrapper"</span><span class="tg">&gt;</span>
+  <span class="tg">&lt;kbd&gt;</span>⌘ K<span class="tg">&lt;/kbd&gt;</span>
+  <span class="tg">&lt;div</span> <span class="at">class</span>=<span class="vl">"tooltip"</span><span class="tg">&gt;</span>Command palette<span class="tg">&lt;/div&gt;</span>
+<span class="tg">&lt;/div&gt;</span></div>
+</section>
+
+<!-- Kbd -->
+<section id="kbd" class="sc">
+  <h2 class="sc-title">Kbd</h2>
+  <p class="sc-desc">Клавиши клавиатуры. Используй для шорткатов в интерфейсе или документации.</p>
+  <div class="demo">
+    <div class="demo-col" style="gap:16px">
+      <div style="display:flex;align-items:center;gap:6px;font-size:1.4rem;color:var(--DARK)">
+        <span style="color:var(--MEDIUM)">Save file</span>
+        <span style="margin-left:auto;display:flex;gap:4px"><kbd>⌘</kbd><kbd>S</kbd></span>
+      </div>
+      <div style="display:flex;align-items:center;gap:6px;font-size:1.4rem;color:var(--DARK)">
+        <span style="color:var(--MEDIUM)">Command palette</span>
+        <span style="margin-left:auto;display:flex;gap:4px"><kbd>⌘</kbd><kbd>K</kbd></span>
+      </div>
+      <div style="display:flex;align-items:center;gap:6px;font-size:1.4rem;color:var(--DARK)">
+        <span style="color:var(--MEDIUM)">Find in files</span>
+        <span style="margin-left:auto;display:flex;gap:4px"><kbd>Ctrl</kbd><kbd>Shift</kbd><kbd>F</kbd></span>
+      </div>
+      <div style="display:flex;align-items:center;gap:6px;font-size:1.4rem;color:var(--DARK)">
+        <span style="color:var(--MEDIUM)">Close modal</span>
+        <span style="margin-left:auto"><kbd>Escape</kbd></span>
+      </div>
+      <hr style="border:none;border-top:1px solid var(--LIGHT)">
+      <div class="demo-row">
+        <kbd>⌘</kbd><kbd>⌥</kbd><kbd>I</kbd>
+        <span style="color:var(--MEDIUM);font-size:1.3rem">or</span>
+        <kbd>Ctrl</kbd><kbd>Alt</kbd><kbd>I</kbd>
+        <span style="color:var(--MEDIUM);font-size:1.3rem">— DevTools</span>
+      </div>
+    </div>
+  </div>
+  <div class="snip"><span class="tg">&lt;kbd&gt;</span>⌘<span class="tg">&lt;/kbd&gt;&lt;kbd&gt;</span>S<span class="tg">&lt;/kbd&gt;</span>
+
+<span class="kw">/* В таблице шорткатов */</span>
+<span class="tg">&lt;div</span> <span class="at">style</span>=<span class="vl">"display:flex;align-items:center"</span><span class="tg">&gt;</span>
+  <span class="tg">&lt;span&gt;</span>Save<span class="tg">&lt;/span&gt;</span>
+  <span class="tg">&lt;span</span> <span class="at">style</span>=<span class="vl">"margin-left:auto;display:flex;gap:4px"</span><span class="tg">&gt;</span>
+    <span class="tg">&lt;kbd&gt;</span>⌘<span class="tg">&lt;/kbd&gt;&lt;kbd&gt;</span>S<span class="tg">&lt;/kbd&gt;</span>
+  <span class="tg">&lt;/span&gt;</span>
+<span class="tg">&lt;/div&gt;</span></div>
+</section>
+
+<!-- Spinner -->
+<section id="spinner" class="sc">
+  <h2 class="sc-title">Spinner</h2>
+  <p class="sc-desc">CSS-анимация. Типичный кейс — вставить внутрь кнопки во время загрузки.</p>
+  <div class="demo">
+    <div class="demo-row" style="align-items:center;margin-bottom:20px">
       <div class="spinner spinner-sm"></div>
       <div class="spinner"></div>
       <div class="spinner spinner-lg"></div>
       <div class="spinner" style="border-top-color:var(--BLUE)"></div>
       <div class="spinner" style="border-top-color:var(--ORANGE)"></div>
     </div>
-
-    <div class="form-label" style="margin-bottom:12px">Kbd</div>
-    <div class="demo-row" style="margin-bottom:16px;padding-bottom:16px;border-bottom:1px solid var(--LIGHT);align-items:center">
-      <kbd>⌘</kbd><kbd>K</kbd>
-      <span style="color:var(--MEDIUM);font-size:1.3rem">or</span>
-      <kbd>Ctrl</kbd><kbd>P</kbd>
-      <span style="color:var(--MEDIUM);font-size:1.3rem">—</span>
-      <kbd>Escape</kbd>
+    <div class="demo-row">
+      <button class="btn btn-primary" disabled>
+        <div class="spinner spinner-sm" style="border-color:rgba(255,255,255,.3);border-top-color:var(--WHITE)"></div>
+        Saving…
+      </button>
+      <button class="btn btn-default" disabled>
+        <div class="spinner spinner-sm"></div>
+        Loading
+      </button>
     </div>
+  </div>
+  <div class="snip"><span class="tg">&lt;div</span> <span class="at">class</span>=<span class="vl">"spinner"</span><span class="tg">&gt;&lt;/div&gt;</span>          <span class="kw">/* default */</span>
+<span class="tg">&lt;div</span> <span class="at">class</span>=<span class="vl">"spinner spinner-sm"</span><span class="tg">&gt;&lt;/div&gt;</span>  <span class="kw">/* small */</span>
+<span class="tg">&lt;div</span> <span class="at">class</span>=<span class="vl">"spinner spinner-lg"</span><span class="tg">&gt;&lt;/div&gt;</span>  <span class="kw">/* large */</span>
 
-    <div class="form-label" style="margin-bottom:12px">Divider label</div>
-    <div class="demo-col" style="gap:16px">
+<span class="kw">/* Другой цвет — переопределяем border-top-color */</span>
+<span class="tg">&lt;div</span> <span class="at">class</span>=<span class="vl">"spinner"</span> <span class="at">style</span>=<span class="vl">"border-top-color:var(--BLUE)"</span><span class="tg">&gt;&lt;/div&gt;</span>
+
+<span class="kw">/* Внутри кнопки */</span>
+<span class="tg">&lt;button</span> <span class="at">class</span>=<span class="vl">"btn btn-primary"</span> <span class="at">disabled</span><span class="tg">&gt;</span>
+  <span class="tg">&lt;div</span> <span class="at">class</span>=<span class="vl">"spinner spinner-sm"</span>
+       <span class="at">style</span>=<span class="vl">"border-color:rgba(255,255,255,.3);border-top-color:#fff"</span><span class="tg">&gt;&lt;/div&gt;</span>
+  Saving…
+<span class="tg">&lt;/button&gt;</span></div>
+</section>
+
+<!-- Divider label -->
+<section id="divider" class="sc">
+  <h2 class="sc-title">Divider label</h2>
+  <p class="sc-desc">Горизонтальный разделитель с текстом по центру. Линии растягиваются через <code>flex: 1</code>.</p>
+  <div class="demo">
+    <div class="demo-col" style="gap:20px">
       <div class="divider-label">or continue with</div>
       <div class="divider-label" style="color:var(--RED)">section break</div>
+      <div class="divider-label" style="color:var(--MEDIUM)">end of results</div>
     </div>
-
   </div>
+  <div class="snip"><span class="tg">&lt;div</span> <span class="at">class</span>=<span class="vl">"divider-label"</span><span class="tg">&gt;</span>or continue with<span class="tg">&lt;/div&gt;</span>
+
+<span class="kw">/* Обязательно: элемент должен иметь ширину (block/flex child).
+   Если не тянется — добавь width: 100% */</span>
+<span class="tg">&lt;div</span> <span class="at">class</span>=<span class="vl">"divider-label"</span> <span class="at">style</span>=<span class="vl">"color:var(--RED)"</span><span class="tg">&gt;</span>section<span class="tg">&lt;/div&gt;</span></div>
 </section>
 
 </div>
