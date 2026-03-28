@@ -1021,16 +1021,25 @@
   <p class="sc-desc">Горизонтальный разделитель с текстом по центру. Линии растягиваются через <code>flex: 1</code>.</p>
   <div class="demo">
     <div class="demo-col" style="gap:20px">
+      <!-- owo-вариант: fieldset + legend -->
+      <fieldset class="hr_fieldset"><legend><h6>section title</h6></legend></fieldset>
+      <!-- utility-класс -->
       <div class="divider-label">or continue with</div>
       <div class="divider-label" style="color:var(--RED)">section break</div>
-      <div class="divider-label" style="color:var(--MEDIUM)">end of results</div>
+      <!-- простой hr -->
+      <hr>
     </div>
   </div>
-  <div class="snip"><span class="tg">&lt;div</span> <span class="at">class</span>=<span class="vl">"divider-label"</span><span class="tg">&gt;</span>or continue with<span class="tg">&lt;/div&gt;</span>
+  <div class="snip"><span class="kw">/* owo: fieldset + legend */</span>
+<span class="tg">&lt;fieldset</span> <span class="at">class</span>=<span class="vl">"hr_fieldset"</span><span class="tg">&gt;</span>
+  <span class="tg">&lt;legend&gt;&lt;h6&gt;</span>section title<span class="tg">&lt;/h6&gt;&lt;/legend&gt;</span>
+<span class="tg">&lt;/fieldset&gt;</span>
 
-<span class="kw">/* Обязательно: элемент должен иметь ширину (block/flex child).
-   Если не тянется — добавь width: 100% */</span>
-<span class="tg">&lt;div</span> <span class="at">class</span>=<span class="vl">"divider-label"</span> <span class="at">style</span>=<span class="vl">"color:var(--RED)"</span><span class="tg">&gt;</span>section<span class="tg">&lt;/div&gt;</span></div>
+<span class="kw">/* utility: текст слева, линия вправо */</span>
+<span class="tg">&lt;div</span> <span class="at">class</span>=<span class="vl">"divider-label"</span><span class="tg">&gt;</span>or continue with<span class="tg">&lt;/div&gt;</span>
+
+<span class="kw">/* просто hr */</span>
+<span class="tg">&lt;hr&gt;</span></div>
 </section>
 
 </div>
