@@ -21,12 +21,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-
-      - name: Convert og.svg → og.png
-        run: |
-          sudo apt-get install -y librsvg2-bin fonts-roboto
-          rsvg-convert -w 1200 -h 630 og.svg -o og.png
-
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
