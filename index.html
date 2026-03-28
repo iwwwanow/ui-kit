@@ -12,7 +12,7 @@
   <meta property="og:title"       content="UI Kit — iwwwanow">
   <meta property="og:description" content="Minimal component library based on owo. Light theme, sharp corners, Roboto Condensed.">
   <meta property="og:url"         content="https://iwwwanow.github.io/ui-kit/">
-  <meta property="og:image"       content="https://iwwwanow.github.io/ui-kit/og.svg">
+  <meta property="og:image"       content="https://iwwwanow.github.io/ui-kit/og.png">
   <meta property="og:image:width"  content="1200">
   <meta property="og:image:height" content="630">
 
@@ -20,7 +20,7 @@
   <meta name="twitter:card"        content="summary_large_image">
   <meta name="twitter:title"       content="UI Kit — iwwwanow">
   <meta name="twitter:description" content="Minimal component library based on owo. Light theme, sharp corners, Roboto Condensed.">
-  <meta name="twitter:image"       content="https://iwwwanow.github.io/ui-kit/og.svg">
+  <meta name="twitter:image"       content="https://iwwwanow.github.io/ui-kit/og.png">
 
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
@@ -568,6 +568,10 @@
       </div>
     </div>
   </div>
+  <div class="snip"><span class="tg">&lt;div</span> <span class="at">class</span>=<span class="vl">"form-group"</span><span class="tg">&gt;</span>
+  <span class="tg">&lt;label</span> <span class="at">class</span>=<span class="vl">"form-label"</span><span class="tg">&gt;</span>Message<span class="tg">&lt;/label&gt;</span>
+  <span class="tg">&lt;textarea</span> <span class="at">class</span>=<span class="vl">"textarea"</span> <span class="at">placeholder</span>=<span class="vl">"Write here…"</span><span class="tg">&gt;&lt;/textarea&gt;</span>
+<span class="tg">&lt;/div&gt;</span></div>
 </section>
 
 <!-- Select -->
@@ -592,6 +596,14 @@
       </div>
     </div>
   </div>
+  <div class="snip"><span class="tg">&lt;div</span> <span class="at">class</span>=<span class="vl">"form-group"</span><span class="tg">&gt;</span>
+  <span class="tg">&lt;label</span> <span class="at">class</span>=<span class="vl">"form-label"</span><span class="tg">&gt;</span>Framework<span class="tg">&lt;/label&gt;</span>
+  <span class="tg">&lt;select</span> <span class="at">class</span>=<span class="vl">"select"</span><span class="tg">&gt;</span>
+    <span class="tg">&lt;option&gt;</span>Choose…<span class="tg">&lt;/option&gt;</span>
+    <span class="tg">&lt;option&gt;</span>React<span class="tg">&lt;/option&gt;</span>
+    <span class="tg">&lt;option&gt;</span>Vue<span class="tg">&lt;/option&gt;</span>
+  <span class="tg">&lt;/select&gt;</span>
+<span class="tg">&lt;/div&gt;</span></div>
 </section>
 
 <!-- Checkbox & Radio -->
@@ -616,6 +628,12 @@
       </div>
     </div>
   </div>
+  <div class="snip"><span class="tg">&lt;label</span> <span class="at">class</span>=<span class="vl">"checkbox"</span><span class="tg">&gt;&lt;input</span> <span class="at">type</span>=<span class="vl">"checkbox"</span><span class="tg">&gt;</span> Option<span class="tg">&lt;/label&gt;</span>
+<span class="tg">&lt;label</span> <span class="at">class</span>=<span class="vl">"checkbox"</span><span class="tg">&gt;&lt;input</span> <span class="at">type</span>=<span class="vl">"checkbox"</span> <span class="at">checked</span><span class="tg">&gt;</span> Checked<span class="tg">&lt;/label&gt;</span>
+<span class="tg">&lt;label</span> <span class="at">class</span>=<span class="vl">"checkbox"</span><span class="tg">&gt;&lt;input</span> <span class="at">type</span>=<span class="vl">"checkbox"</span> <span class="at">disabled</span><span class="tg">&gt;</span> Disabled<span class="tg">&lt;/label&gt;</span>
+
+<span class="tg">&lt;label</span> <span class="at">class</span>=<span class="vl">"radio"</span><span class="tg">&gt;&lt;input</span> <span class="at">type</span>=<span class="vl">"radio"</span> <span class="at">name</span>=<span class="vl">"group"</span><span class="tg">&gt;</span> Option A<span class="tg">&lt;/label&gt;</span>
+<span class="tg">&lt;label</span> <span class="at">class</span>=<span class="vl">"radio"</span><span class="tg">&gt;&lt;input</span> <span class="at">type</span>=<span class="vl">"radio"</span> <span class="at">name</span>=<span class="vl">"group"</span> <span class="at">checked</span><span class="tg">&gt;</span> Option B<span class="tg">&lt;/label&gt;</span></div>
 </section>
 
 <!-- Toggle -->
@@ -641,6 +659,14 @@
       </label>
     </div>
   </div>
+  <div class="snip"><span class="tg">&lt;label</span> <span class="at">class</span>=<span class="vl">"toggle"</span><span class="tg">&gt;</span>
+  <span class="tg">&lt;input</span> <span class="at">type</span>=<span class="vl">"checkbox"</span><span class="tg">&gt;</span>
+  <span class="tg">&lt;div</span> <span class="at">class</span>=<span class="vl">"toggle__track"</span><span class="tg">&gt;&lt;div</span> <span class="at">class</span>=<span class="vl">"toggle__thumb"</span><span class="tg">&gt;&lt;/div&gt;&lt;/div&gt;</span>
+  Label text
+<span class="tg">&lt;/label&gt;</span>
+
+<span class="kw">/* Disabled: add opacity + pointer-events:none on the label */</span>
+<span class="tg">&lt;label</span> <span class="at">class</span>=<span class="vl">"toggle"</span> <span class="at">style</span>=<span class="vl">"opacity:.4;pointer-events:none"</span><span class="tg">&gt;</span>…<span class="tg">&lt;/label&gt;</span></div>
 </section>
 
 <!-- Card UI -->
@@ -704,6 +730,15 @@
       <span class="badge badge-accent badge-dot">New</span>
     </div>
   </div>
+  <div class="snip"><span class="tg">&lt;span</span> <span class="at">class</span>=<span class="vl">"badge badge-default"</span><span class="tg">&gt;</span>Default<span class="tg">&lt;/span&gt;</span>
+<span class="tg">&lt;span</span> <span class="at">class</span>=<span class="vl">"badge badge-accent"</span><span class="tg">&gt;</span>Accent<span class="tg">&lt;/span&gt;</span>
+<span class="tg">&lt;span</span> <span class="at">class</span>=<span class="vl">"badge badge-success"</span><span class="tg">&gt;</span>Success<span class="tg">&lt;/span&gt;</span>
+<span class="tg">&lt;span</span> <span class="at">class</span>=<span class="vl">"badge badge-warning"</span><span class="tg">&gt;</span>Warning<span class="tg">&lt;/span&gt;</span>
+<span class="tg">&lt;span</span> <span class="at">class</span>=<span class="vl">"badge badge-error"</span><span class="tg">&gt;</span>Error<span class="tg">&lt;/span&gt;</span>
+<span class="tg">&lt;span</span> <span class="at">class</span>=<span class="vl">"badge badge-info"</span><span class="tg">&gt;</span>Info<span class="tg">&lt;/span&gt;</span>
+
+<span class="kw">/* With dot indicator */</span>
+<span class="tg">&lt;span</span> <span class="at">class</span>=<span class="vl">"badge badge-success badge-dot"</span><span class="tg">&gt;</span>Online<span class="tg">&lt;/span&gt;</span></div>
 </section>
 
 <!-- Tags -->
@@ -723,6 +758,11 @@
       <span class="tag tag-active">CSS <span class="tag-close">×</span></span>
     </div>
   </div>
+  <div class="snip"><span class="tg">&lt;span</span> <span class="at">class</span>=<span class="vl">"tag"</span><span class="tg">&gt;</span>design<span class="tg">&lt;/span&gt;</span>
+<span class="tg">&lt;span</span> <span class="at">class</span>=<span class="vl">"tag tag-active"</span><span class="tg">&gt;</span>selected<span class="tg">&lt;/span&gt;</span>
+
+<span class="kw">/* With close button */</span>
+<span class="tg">&lt;span</span> <span class="at">class</span>=<span class="vl">"tag"</span><span class="tg">&gt;</span>React <span class="tg">&lt;span</span> <span class="at">class</span>=<span class="vl">"tag-close"</span><span class="tg">&gt;</span>×<span class="tg">&lt;/span&gt;&lt;/span&gt;</span></div>
 </section>
 
 <!-- Alerts -->
@@ -738,6 +778,15 @@
       <div class="alert alert-info"><span class="alert-icon">◎</span><div><div class="alert-title">Update</div>Version 1.2.0 is ready.</div></div>
     </div>
   </div>
+  <div class="snip"><span class="tg">&lt;div</span> <span class="at">class</span>=<span class="vl">"alert alert-default"</span><span class="tg">&gt;</span>
+  <span class="tg">&lt;span</span> <span class="at">class</span>=<span class="vl">"alert-icon"</span><span class="tg">&gt;</span>ℹ<span class="tg">&lt;/span&gt;</span>
+  <span class="tg">&lt;div&gt;</span>
+    <span class="tg">&lt;div</span> <span class="at">class</span>=<span class="vl">"alert-title"</span><span class="tg">&gt;</span>Note<span class="tg">&lt;/div&gt;</span>
+    Message text here.
+  <span class="tg">&lt;/div&gt;</span>
+<span class="tg">&lt;/div&gt;</span>
+
+<span class="kw">/* Variants: alert-default  alert-success  alert-warning  alert-error  alert-info */</span></div>
 </section>
 
 <!-- Progress -->
@@ -768,6 +817,15 @@
       </div>
     </div>
   </div>
+  <div class="snip"><span class="tg">&lt;div</span> <span class="at">class</span>=<span class="vl">"progress"</span><span class="tg">&gt;</span>
+  <span class="tg">&lt;div</span> <span class="at">class</span>=<span class="vl">"progress-bar"</span> <span class="at">style</span>=<span class="vl">"width:67%"</span><span class="tg">&gt;&lt;/div&gt;</span>
+<span class="tg">&lt;/div&gt;</span>
+
+<span class="kw">/* Variants: progress-success  progress-warning  progress-info */</span>
+<span class="kw">/* Tall track: add .progress-lg */</span>
+<span class="tg">&lt;div</span> <span class="at">class</span>=<span class="vl">"progress progress-success"</span><span class="tg">&gt;</span>
+  <span class="tg">&lt;div</span> <span class="at">class</span>=<span class="vl">"progress-bar"</span> <span class="at">style</span>=<span class="vl">"width:100%"</span><span class="tg">&gt;&lt;/div&gt;</span>
+<span class="tg">&lt;/div&gt;</span></div>
 </section>
 
 <!-- Range -->
@@ -792,6 +850,11 @@
       </div>
     </div>
   </div>
+  <div class="snip"><span class="tg">&lt;div</span> <span class="at">class</span>=<span class="vl">"range-row"</span><span class="tg">&gt;</span>
+  <span class="tg">&lt;input</span> <span class="at">type</span>=<span class="vl">"range"</span> <span class="at">class</span>=<span class="vl">"range"</span> <span class="at">min</span>=<span class="vl">"0"</span> <span class="at">max</span>=<span class="vl">"100"</span> <span class="at">value</span>=<span class="vl">"50"</span>
+         <span class="at">oninput</span>=<span class="vl">"this.nextElementSibling.textContent=this.value"</span> <span class="at">style</span>=<span class="vl">"flex:1"</span><span class="tg">&gt;</span>
+  <span class="tg">&lt;span</span> <span class="at">class</span>=<span class="vl">"range-val"</span><span class="tg">&gt;</span>50<span class="tg">&lt;/span&gt;</span>
+<span class="tg">&lt;/div&gt;</span></div>
 </section>
 
 <!-- Tables -->
@@ -848,6 +911,18 @@
     </div>
     <div style="padding:16px 0;font-size:1.4rem;color:var(--MEDIUM)">Tab content area</div>
   </div>
+  <div class="snip"><span class="tg">&lt;div</span> <span class="at">class</span>=<span class="vl">"tabs"</span><span class="tg">&gt;</span>
+  <span class="tg">&lt;button</span> <span class="at">class</span>=<span class="vl">"tab-item active"</span><span class="tg">&gt;</span>Overview<span class="tg">&lt;/button&gt;</span>
+  <span class="tg">&lt;button</span> <span class="at">class</span>=<span class="vl">"tab-item"</span><span class="tg">&gt;</span>Settings<span class="tg">&lt;/button&gt;</span>
+<span class="tg">&lt;/div&gt;</span>
+
+<span class="kw">/* Toggle active tab with JS */</span>
+<span class="at">tabs</span>.addEventListener(<span class="vl">'click'</span>, e =&gt; {
+  <span class="at">const</span> btn = e.target.closest(<span class="vl">'.tab-item'</span>);
+  <span class="at">if</span> (!btn) <span class="at">return</span>;
+  tabs.querySelectorAll(<span class="vl">'.tab-item'</span>).forEach(t =&gt; t.classList.remove(<span class="vl">'active'</span>));
+  btn.classList.add(<span class="vl">'active'</span>);
+});</div>
 </section>
 
 <!-- Avatars -->
@@ -868,6 +943,13 @@
       <div class="avatar avatar-md" style="background:var(--WHITE);color:var(--ORANGE);border-color:var(--ORANGE)">EF</div>
     </div>
   </div>
+  <div class="snip"><span class="tg">&lt;div</span> <span class="at">class</span>=<span class="vl">"avatar avatar-md"</span><span class="tg">&gt;</span>AB<span class="tg">&lt;/div&gt;</span>
+<span class="tg">&lt;div</span> <span class="at">class</span>=<span class="vl">"avatar avatar-md avatar-accent"</span><span class="tg">&gt;</span>IW<span class="tg">&lt;/div&gt;</span>
+
+<span class="kw">/* Sizes: avatar-sm (24px)  avatar-md (36px)  avatar-lg (48px)  avatar-xl (72px) */</span>
+<span class="kw">/* Custom color via inline style */</span>
+<span class="tg">&lt;div</span> <span class="at">class</span>=<span class="vl">"avatar avatar-md"</span>
+     <span class="at">style</span>=<span class="vl">"background:#fff;color:var(--BLUE);border-color:var(--BLUE)"</span><span class="tg">&gt;</span>CD<span class="tg">&lt;/div&gt;</span></div>
 </section>
 
 <!-- Toast -->
@@ -894,6 +976,16 @@
       </div>
     </div>
   </div>
+  <div class="snip"><span class="tg">&lt;div</span> <span class="at">class</span>=<span class="vl">"toast toast-accent"</span><span class="tg">&gt;</span>
+  <span class="tg">&lt;div</span> <span class="at">style</span>=<span class="vl">"flex:1"</span><span class="tg">&gt;</span>
+    <span class="tg">&lt;div</span> <span class="at">class</span>=<span class="vl">"toast-title"</span><span class="tg">&gt;</span>Build complete<span class="tg">&lt;/div&gt;</span>
+    <span class="tg">&lt;div</span> <span class="at">class</span>=<span class="vl">"toast-body"</span><span class="tg">&gt;</span>2 artifacts compiled in 1.23s.<span class="tg">&lt;/div&gt;</span>
+  <span class="tg">&lt;/div&gt;</span>
+  <span class="tg">&lt;span</span> <span class="at">class</span>=<span class="vl">"toast-close"</span>
+        <span class="at">onclick</span>=<span class="vl">"this.closest('.toast').style.display='none'"</span><span class="tg">&gt;</span>×<span class="tg">&lt;/span&gt;</span>
+<span class="tg">&lt;/div&gt;</span>
+
+<span class="kw">/* Left border variants: toast-accent  toast-success  toast-warning  toast-error  toast-info */</span></div>
 </section>
 
 <!-- Breadcrumbs -->
@@ -918,6 +1010,15 @@
       </nav>
     </div>
   </div>
+  <div class="snip"><span class="tg">&lt;nav</span> <span class="at">class</span>=<span class="vl">"breadcrumbs"</span><span class="tg">&gt;</span>
+  <span class="tg">&lt;span</span> <span class="at">class</span>=<span class="vl">"breadcrumb-item"</span><span class="tg">&gt;&lt;a</span> <span class="at">href</span>=<span class="vl">"/"</span><span class="tg">&gt;</span>Home<span class="tg">&lt;/a&gt;&lt;/span&gt;</span>
+  <span class="tg">&lt;span</span> <span class="at">class</span>=<span class="vl">"breadcrumb-sep"</span><span class="tg">&gt;</span>/<span class="tg">&lt;/span&gt;</span>
+  <span class="tg">&lt;span</span> <span class="at">class</span>=<span class="vl">"breadcrumb-item"</span><span class="tg">&gt;&lt;a</span> <span class="at">href</span>=<span class="vl">"/components"</span><span class="tg">&gt;</span>Components<span class="tg">&lt;/a&gt;&lt;/span&gt;</span>
+  <span class="tg">&lt;span</span> <span class="at">class</span>=<span class="vl">"breadcrumb-sep"</span><span class="tg">&gt;</span>/<span class="tg">&lt;/span&gt;</span>
+  <span class="tg">&lt;span</span> <span class="at">class</span>=<span class="vl">"breadcrumb-item"</span><span class="tg">&gt;</span>Current page<span class="tg">&lt;/span&gt;</span>
+<span class="tg">&lt;/nav&gt;</span>
+
+<span class="kw">/* Separator can be any char: / › • — */</span></div>
 </section>
 
 <!-- Tooltip -->
@@ -1036,30 +1137,24 @@
 <span class="tg">&lt;/button&gt;</span></div>
 </section>
 
-<!-- Divider label -->
+<!-- Divider -->
 <section id="divider" class="sc">
-  <h2 class="sc-title">Divider label</h2>
-  <p class="sc-desc">Горизонтальный разделитель с текстом по центру. Линии растягиваются через <code>flex: 1</code>.</p>
-  <div class="demo">
-    <div class="demo-col" style="gap:20px">
-      <!-- owo-вариант: fieldset + legend -->
+  <h2 class="sc-title">Divider</h2>
+  <p class="sc-desc">Два варианта из owo: простой <code>&lt;hr&gt;</code> и с подписью через <code>.hr_fieldset</code>.</p>
+  <div class="demo" style="font-size:1rem">
+    <div class="demo-col" style="gap:8px">
+      <!-- с подписью -->
       <fieldset class="hr_fieldset"><legend><h6>section title</h6></legend></fieldset>
-      <!-- utility-класс -->
-      <div class="divider-label">or continue with</div>
-      <div class="divider-label" style="color:var(--RED)">section break</div>
-      <!-- простой hr -->
+      <!-- просто hr -->
       <hr>
     </div>
   </div>
-  <div class="snip"><span class="kw">/* owo: fieldset + legend */</span>
+  <div class="snip"><span class="kw">/* С подписью (owo: fieldset + legend) */</span>
 <span class="tg">&lt;fieldset</span> <span class="at">class</span>=<span class="vl">"hr_fieldset"</span><span class="tg">&gt;</span>
   <span class="tg">&lt;legend&gt;&lt;h6&gt;</span>section title<span class="tg">&lt;/h6&gt;&lt;/legend&gt;</span>
 <span class="tg">&lt;/fieldset&gt;</span>
 
-<span class="kw">/* utility: текст слева, линия вправо */</span>
-<span class="tg">&lt;div</span> <span class="at">class</span>=<span class="vl">"divider-label"</span><span class="tg">&gt;</span>or continue with<span class="tg">&lt;/div&gt;</span>
-
-<span class="kw">/* просто hr */</span>
+<span class="kw">/* Просто разделитель */</span>
 <span class="tg">&lt;hr&gt;</span></div>
 </section>
 

@@ -853,18 +853,6 @@ hr, .hr_fieldset {
 .hr_fieldset legend { padding: 0 4px; }
 .hr_fieldset legend * { text-transform: lowercase !important; }
 
-/* Utility class — text LEFT, line extends right (same visual as hr_fieldset) */
-.divider-label {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  width: 100%;
-  padding-left: var(--GRID-GAP-2);
-  font-size: 1.2rem;
-  color: var(--MEDIUM);
-}
-.divider-label::after { content: ''; flex: 1; height: 1px; background: var(--LIGHT); }
-
 /* --- Utilities --- */
 .flex            { display: flex; }
 .flex-col        { flex-direction: column; }
