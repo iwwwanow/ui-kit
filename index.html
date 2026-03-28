@@ -3,178 +3,218 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#e0e0e0">
   <title>UI Kit — iwwwanow</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300;1,700&family=Roboto+Mono:wght@400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="kit.css">
   <style>
     /* ── Showcase layout ── */
     :root {
-      --sw: 210px;   /* sidebar width  */
-      --hh: 52px;    /* header height  */
+      --HDR-H: 44px;
+      --SB-W:  206px; /* one owo column + gap */
     }
-
-    body { padding-top: var(--hh); }
 
     /* Header */
     .hdr {
       position: fixed;
       top: 0; left: 0; right: 0;
-      height: var(--hh);
-      background: var(--bg);
-      border-bottom: 1px solid var(--border);
+      height: var(--HDR-H);
+      background: var(--WHITE);
+      border-bottom: 1px solid var(--LIGHT);
       display: flex;
       align-items: center;
-      padding: 0 24px;
-      z-index: 50;
-      gap: 12px;
-    }
-    .hdr-logo {
-      font-size: 1.5rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--text);
-      display: flex;
-      align-items: center;
+      padding: 0 var(--GRID-GAP);
+      z-index: 10;
       gap: 8px;
     }
-    .hdr-logo em { font-style: normal; color: var(--accent); }
-    .hdr-sep { color: var(--border); }
-    .hdr-name { color: var(--text-muted); font-size: 1.3rem; text-transform: uppercase; letter-spacing: 0.1em; }
-    .hdr-right { margin-left: auto; display: flex; align-items: center; gap: 10px; }
-    .hdr-gh {
-      display: inline-flex;
+    .hdr-logo {
+      font-size: 1.4rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--BLACK);
+      display: flex;
       align-items: center;
       gap: 6px;
-      font-size: 1.2rem;
-      color: var(--text-dim);
-      padding: 4px 10px;
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      transition: all var(--transition);
     }
-    .hdr-gh:hover { color: var(--text); border-color: var(--border-hover); }
+    .hdr-logo em { font-style: normal; color: var(--RED); }
+    .hdr-sep { color: var(--LIGHT); }
+    .hdr-sub { font-size: 1.4rem; color: var(--MEDIUM); text-transform: uppercase; letter-spacing: 0.06em; }
+    .hdr-right { margin-left: auto; display: flex; align-items: center; gap: 8px; }
+    .hdr-link {
+      font-size: 1.3rem;
+      color: var(--MEDIUM);
+      border-width: 1px;
+      border-style: solid;
+      border-color: var(--LIGHT);
+      padding: 4px 10px;
+      transition: border-color 0.1s, color 0.1s;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      text-decoration: none;
+    }
+    .hdr-link:hover { border-color: var(--DARK); color: var(--DARK); text-decoration: none; }
+
+    /* Page layout */
+    body { padding-top: var(--HDR-H); }
+
+    .layout {
+      display: flex;
+      min-height: calc(100vh - var(--HDR-H));
+    }
 
     /* Sidebar */
     .sb {
       position: fixed;
-      top: var(--hh); left: 0; bottom: 0;
-      width: var(--sw);
-      background: var(--bg);
-      border-right: 1px solid var(--border);
+      top: var(--HDR-H);
+      left: 0;
+      bottom: 0;
+      width: var(--SB-W);
+      background: var(--WHITE);
+      border-right: 1px solid var(--LIGHT);
       overflow-y: auto;
-      padding: 20px 0 40px;
-      z-index: 40;
+      padding: 16px 0 32px;
+      z-index: 9;
     }
-    .sb-group { margin-bottom: 24px; }
+    .sb-group { margin-bottom: 20px; }
     .sb-group-label {
-      padding: 0 16px 8px;
-      font-size: 1.0rem;
-      font-weight: 600;
+      padding: 0 var(--GRID-GAP) 6px;
+      font-size: 1.1rem;
+      font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: var(--text-dim);
+      letter-spacing: 0.1em;
+      color: var(--MEDIUM);
     }
     .sb-link {
       display: block;
-      padding: 7px 16px;
+      padding: 6px var(--GRID-GAP);
       font-size: 1.4rem;
-      color: var(--text-muted);
-      transition: all var(--transition);
+      color: var(--MEDIUM);
+      transition: color 0.1s, background 0.1s;
       border-left: 2px solid transparent;
       cursor: pointer;
+      text-decoration: none;
     }
-    .sb-link:hover { color: var(--text); background: var(--surface); }
-    .sb-link.active { color: var(--accent); border-left-color: var(--accent); background: var(--accent-dim); }
+    .sb-link:hover { color: var(--DARK); text-decoration: none; }
+    .sb-link.active { color: var(--BLACK); border-left-color: var(--RED); background: var(--LIGHT); }
 
     /* Main */
     .main {
-      margin-left: var(--sw);
-      min-height: calc(100vh - var(--hh));
+      margin-left: var(--SB-W);
+      flex: 1;
+      min-width: 0;
     }
     .main-inner {
-      max-width: 880px;
-      padding: 48px 48px 120px;
+      max-width: calc(190px * 5 + var(--GRID-GAP) * 5);
+      padding: 32px var(--GRID-GAP) 96px calc(var(--GRID-GAP) * 2);
     }
 
     /* Section */
-    .sc { margin-bottom: 80px; scroll-margin-top: calc(var(--hh) + 20px); }
-    .sc-title { font-size: 2.8rem; font-weight: 700; font-style: italic; margin-bottom: 4px; }
-    .sc-desc  { font-size: 1.5rem; color: var(--text-muted); margin-bottom: 28px; line-height: 2.2rem; }
+    .sc { margin-bottom: 64px; scroll-margin-top: calc(var(--HDR-H) + 16px); }
+    .sc-title { font-size: 2.8em; font-style: italic; font-weight: 700; line-height: 84%; letter-spacing: -0.056rem; margin-bottom: 1.2rem; color: var(--BLACK); }
+    .sc-desc  { font-size: 1.6rem; color: var(--MEDIUM); margin-bottom: 24px; line-height: 2.4rem; }
 
     /* Demo box */
     .demo {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      padding: 28px;
-      margin-bottom: 12px;
+      border-width: 1px;
+      border-style: solid;
+      border-color: var(--LIGHT);
+      padding: 24px;
+      margin-bottom: 0;
+      background: var(--WHITE);
     }
     .demo-row {
       display: flex;
       flex-wrap: wrap;
       align-items: center;
-      gap: 10px;
-      margin-bottom: 14px;
+      gap: 8px;
+      margin-bottom: 12px;
     }
     .demo-row:last-child { margin-bottom: 0; }
-    .demo-col { display: flex; flex-direction: column; gap: 12px; }
-    .demo-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 16px; }
+    .demo-col { display: flex; flex-direction: column; gap: 10px; }
+    .demo-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: var(--GRID-GAP); }
 
-    /* Code snippet */
+    /* Snippet */
     .snip {
-      background: var(--surface-2);
-      border: 1px solid var(--border);
-      border-top: none;
-      border-bottom-left-radius: var(--radius);
-      border-bottom-right-radius: var(--radius);
-      padding: 14px 16px;
-      font-family: var(--mono);
-      font-size: 1.25rem;
-      color: var(--text-muted);
-      line-height: 1.7;
+      background: var(--LIGHT);
+      border-width: 0 1px 1px;
+      border-style: solid;
+      border-color: var(--LIGHT);
+      padding: 12px 14px;
+      font-family: "Roboto Mono", monospace;
+      font-size: 1.3rem;
+      color: var(--DARK);
+      line-height: 1.8;
       overflow-x: auto;
       white-space: pre;
     }
-    .snip .kw   { color: var(--accent); }
-    .snip .at   { color: var(--info); }
-    .snip .vl   { color: var(--success); }
-    .snip .tg   { color: var(--warning); }
+    .snip .kw { color: var(--RED); }
+    .snip .at { color: var(--BLUE); }
+    .snip .vl { color: var(--GREEN); }  /* note: visible on light bg since --GREEN is vivid */
+    .snip .tg { color: var(--DARK); font-weight: 700; }
+    /* override green to darker shade for readability on light */
+    .snip .vl { color: #007a4a; }
 
-    /* Color palette */
-    .color-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)); gap: 10px; }
-    .color-chip { border-radius: var(--radius); overflow: hidden; border: 1px solid var(--border); }
-    .color-swatch { height: 60px; }
-    .color-info { padding: 8px 10px; background: var(--surface-2); }
-    .color-name  { font-size: 1.15rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; }
-    .color-val   { font-size: 1.1rem; font-family: var(--mono); color: var(--text-muted); }
+    /* Color chips */
+    .color-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); gap: 8px; }
+    .color-chip { border-width: 1px; border-style: solid; border-color: var(--LIGHT); }
+    .color-swatch { height: 56px; }
+    .color-info { padding: 6px 8px; background: var(--WHITE); }
+    .color-name { font-size: 1.2rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; color: var(--DARK); }
+    .color-val  { font-size: 1.1rem; font-family: "Roboto Mono", monospace; color: var(--MEDIUM); }
 
     /* Typography preview */
-    .typo-row { display: flex; flex-direction: column; gap: 22px; }
-    .typo-item { display: flex; align-items: baseline; gap: 20px; }
-    .typo-lbl  { font-size: 1.1rem; font-family: var(--mono); color: var(--text-dim); min-width: 70px; flex-shrink: 0; }
+    .typo-row { display: flex; flex-direction: column; gap: 20px; }
+    .typo-item { display: flex; align-items: baseline; gap: var(--GRID-GAP); }
+    .typo-lbl  { font-size: 1.1rem; font-family: "Roboto Mono", monospace; color: var(--MEDIUM); min-width: 64px; flex-shrink: 0; }
 
     /* Range demo */
-    .range-row { display: flex; align-items: center; gap: 16px; }
-    .range-val { font-family: var(--mono); font-size: 1.4rem; color: var(--accent); min-width: 36px; text-align: right; }
+    .range-row { display: flex; align-items: center; gap: var(--GRID-GAP); }
+    .range-val { font-family: "Roboto Mono", monospace; font-size: 1.4rem; color: var(--RED); min-width: 32px; text-align: right; }
 
     /* Hero */
-    .hero { padding: 40px 0 60px; border-bottom: 1px solid var(--border); margin-bottom: 80px; }
-    .hero-eyebrow { font-size: 1.2rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent); margin-bottom: 12px; }
-    .hero-title   { font-size: 7.2rem; font-weight: 700; font-style: italic; line-height: 1; letter-spacing: -0.03em; margin-bottom: 16px; }
-    .hero-title span { color: var(--accent); }
-    .hero-sub { font-size: 1.8rem; color: var(--text-muted); max-width: 520px; line-height: 2.6rem; margin-bottom: 32px; }
-    .hero-meta { display: flex; gap: 40px; flex-wrap: wrap; }
-    .hero-meta-lbl { font-size: 1.0rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-dim); margin-bottom: 4px; }
-    .hero-meta-val { font-size: 1.4rem; font-family: var(--mono); color: var(--text-muted); }
+    .hero {
+      padding: 32px 0 48px;
+      border-bottom: 1px solid var(--LIGHT);
+      margin-bottom: 64px;
+    }
+    .hero-eyebrow {
+      font-size: 1.2rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--RED);
+      margin-bottom: 8px;
+    }
+    .hero-title {
+      font-size: 6.4em;
+      font-weight: 700;
+      font-style: italic;
+      line-height: 75%;
+      letter-spacing: -0.256rem;
+      margin-bottom: 2.4rem;
+      color: var(--BLACK);
+    }
+    .hero-sub {
+      font-size: 1.6em;
+      color: var(--MEDIUM);
+      max-width: 560px;
+      line-height: 2.4rem;
+      margin-bottom: 32px;
+    }
+    .hero-meta { display: flex; gap: 32px; flex-wrap: wrap; border-top: 1px solid var(--LIGHT); padding-top: 16px; }
+    .hero-meta-lbl { font-size: 1.1rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--MEDIUM); margin-bottom: 2px; }
+    .hero-meta-val { font-size: 1.4rem; font-family: "Roboto Mono", monospace; color: var(--DARK); }
 
-    @media (max-width: 768px) {
+    /* Section separator */
+    .sc-sep { border: none; border-top: 1px solid var(--LIGHT); margin: 0 0 64px; }
+
+    @media screen and (max-width: 858px) {
       .sb { display: none; }
       .main { margin-left: 0; }
-      .main-inner { padding: 32px 20px 80px; }
-      .hero-title { font-size: 4.8rem; }
+      .main-inner { padding: 24px var(--GRID-GAP) 80px; }
     }
   </style>
 </head>
@@ -185,48 +225,49 @@
   <div class="hdr-logo">
     <em>iwwwanow</em>
     <span class="hdr-sep">/</span>
-    <span class="hdr-name">ui-kit</span>
+    <span class="hdr-sub">ui-kit</span>
   </div>
   <div class="hdr-right">
     <span class="badge badge-default">v0.1.0</span>
-    <a href="https://github.com/iwwwanow/iwwwanow_ui-kit" class="hdr-gh" target="_blank" rel="noopener">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.2 11.37.6.11.82-.26.82-.58v-2.04c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.83 2.8 1.3 3.49 1 .11-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.52.12-3.17 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 013-.4c1.02 0 2.04.14 3 .4 2.28-1.55 3.29-1.23 3.29-1.23.66 1.65.25 2.87.12 3.17.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.48 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.22.7.83.58C20.57 21.8 24 17.3 24 12c0-6.63-5.37-12-12-12z"/></svg>
+    <a class="hdr-link" href="https://github.com/iwwwanow" target="_blank" rel="noopener">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.2 11.37.6.11.82-.26.82-.58v-2.04c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.83 2.8 1.3 3.49 1 .11-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.52.12-3.17 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 013-.4c1.02 0 2.04.14 3 .4 2.28-1.55 3.29-1.23 3.29-1.23.66 1.65.25 2.87.12 3.17.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.48 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.22.7.83.58C20.57 21.8 24 17.3 24 12c0-6.63-5.37-12-12-12z"/></svg>
       GitHub
     </a>
   </div>
 </header>
 
 <!-- ══ Sidebar ══ -->
-<nav class="sb" id="sidebar">
+<nav class="sb" id="sb">
   <div class="sb-group">
     <div class="sb-group-label">Foundation</div>
-    <a class="sb-link" data-target="intro">Introduction</a>
-    <a class="sb-link" data-target="colors">Colors</a>
-    <a class="sb-link" data-target="typography">Typography</a>
+    <a class="sb-link" data-t="intro">Introduction</a>
+    <a class="sb-link" data-t="colors">Colors</a>
+    <a class="sb-link" data-t="typography">Typography</a>
+    <a class="sb-link" data-t="grid">Grid</a>
+    <a class="sb-link" data-t="border">Borders</a>
+    <a class="sb-link" data-t="card-media">Card — media</a>
   </div>
   <div class="sb-group">
     <div class="sb-group-label">Components</div>
-    <a class="sb-link" data-target="buttons">Buttons</a>
-    <a class="sb-link" data-target="inputs">Inputs</a>
-    <a class="sb-link" data-target="textarea">Textarea</a>
-    <a class="sb-link" data-target="select">Select</a>
-    <a class="sb-link" data-target="checkbox">Checkbox &amp; Radio</a>
-    <a class="sb-link" data-target="toggle">Toggle</a>
-    <a class="sb-link" data-target="cards">Cards</a>
-    <a class="sb-link" data-target="badges">Badges</a>
-    <a class="sb-link" data-target="tags">Tags</a>
-    <a class="sb-link" data-target="alerts">Alerts</a>
-    <a class="sb-link" data-target="progress">Progress</a>
-    <a class="sb-link" data-target="range">Range</a>
-    <a class="sb-link" data-target="tables">Tables</a>
-    <a class="sb-link" data-target="tabs">Tabs</a>
-    <a class="sb-link" data-target="avatars">Avatars</a>
-    <a class="sb-link" data-target="toast">Toast</a>
-    <a class="sb-link" data-target="breadcrumbs">Breadcrumbs</a>
-    <a class="sb-link" data-target="tooltips">Tooltips</a>
-    <a class="sb-link" data-target="spinners">Spinners</a>
-    <a class="sb-link" data-target="code">Code &amp; Kbd</a>
-    <a class="sb-link" data-target="dividers">Dividers</a>
+    <a class="sb-link" data-t="buttons">Buttons</a>
+    <a class="sb-link" data-t="inputs">Inputs</a>
+    <a class="sb-link" data-t="textarea">Textarea</a>
+    <a class="sb-link" data-t="select">Select</a>
+    <a class="sb-link" data-t="checkbox">Checkbox &amp; Radio</a>
+    <a class="sb-link" data-t="toggle">Toggle</a>
+    <a class="sb-link" data-t="card-ui">Card — UI</a>
+    <a class="sb-link" data-t="badges">Badges</a>
+    <a class="sb-link" data-t="tags">Tags</a>
+    <a class="sb-link" data-t="alerts">Alerts</a>
+    <a class="sb-link" data-t="progress">Progress</a>
+    <a class="sb-link" data-t="range">Range</a>
+    <a class="sb-link" data-t="tables">Tables</a>
+    <a class="sb-link" data-t="tabs">Tabs</a>
+    <a class="sb-link" data-t="avatars">Avatars</a>
+    <a class="sb-link" data-t="toast">Toast</a>
+    <a class="sb-link" data-t="breadcrumbs">Breadcrumbs</a>
+    <a class="sb-link" data-t="tooltips">Tooltips</a>
+    <a class="sb-link" data-t="misc">Misc</a>
   </div>
 </nav>
 
@@ -234,71 +275,63 @@
 <main class="main">
 <div class="main-inner">
 
-<!-- ── Introduction ── -->
+<!-- Hero -->
 <section id="intro" class="hero">
   <p class="hero-eyebrow">Design System</p>
-  <h1 class="hero-title">UI <span>Kit</span></h1>
-  <p class="hero-sub">Minimal, dark-first component library built on the visual language of <em>owo</em> and <em>xtc-toaster</em>. Drop in <code>kit.css</code> and go.</p>
+  <h1 class="hero-title">UI Kit</h1>
+  <p class="hero-sub">Component library based on <a href="https://github.com/iwwwanow/owo">owo</a>. Light theme, sharp corners, Roboto Condensed. Drop in <code>kit.css</code>.</p>
   <div class="hero-meta">
     <div><div class="hero-meta-lbl">Font</div><div class="hero-meta-val">Roboto Condensed</div></div>
-    <div><div class="hero-meta-lbl">Accent</div><div class="hero-meta-val" style="color:var(--accent)">#ff115c</div></div>
-    <div><div class="hero-meta-lbl">Mode</div><div class="hero-meta-val">Dark</div></div>
+    <div><div class="hero-meta-lbl">Accent</div><div class="hero-meta-val" style="color:var(--RED)">#ff115c</div></div>
+    <div><div class="hero-meta-lbl">Base</div><div class="hero-meta-val">Light</div></div>
+    <div><div class="hero-meta-lbl">Radius</div><div class="hero-meta-val">0</div></div>
     <div><div class="hero-meta-lbl">Version</div><div class="hero-meta-val">0.1.0</div></div>
-    <div><div class="hero-meta-lbl">License</div><div class="hero-meta-val">MIT</div></div>
   </div>
 </section>
 
-<!-- ── Colors ── -->
+<!-- Colors -->
 <section id="colors" class="sc">
   <h2 class="sc-title">Colors</h2>
-  <p class="sc-desc">CSS custom properties — available globally after importing <code>kit.css</code>.</p>
+  <p class="sc-desc">owo color tokens. Use via CSS variables.</p>
   <div class="demo">
-    <div style="font-size:1.1rem;text-transform:uppercase;letter-spacing:.1em;color:var(--text-dim);margin-bottom:14px">Background & Surface</div>
-    <div class="color-grid" style="margin-bottom:24px">
-      <div class="color-chip"><div class="color-swatch" style="background:#0d0d0d;border-bottom:1px solid #2e2e2e"></div><div class="color-info"><div class="color-name">BG</div><div class="color-val">--bg</div></div></div>
-      <div class="color-chip"><div class="color-swatch" style="background:#1a1a1a"></div><div class="color-info"><div class="color-name">Surface</div><div class="color-val">--surface</div></div></div>
-      <div class="color-chip"><div class="color-swatch" style="background:#222"></div><div class="color-info"><div class="color-name">Surface 2</div><div class="color-val">--surface-2</div></div></div>
-      <div class="color-chip"><div class="color-swatch" style="background:#2a2a2a"></div><div class="color-info"><div class="color-name">Surface 3</div><div class="color-val">--surface-3</div></div></div>
-      <div class="color-chip"><div class="color-swatch" style="background:#2e2e2e"></div><div class="color-info"><div class="color-name">Border</div><div class="color-val">--border</div></div></div>
+    <div style="font-size:1.1rem;text-transform:uppercase;letter-spacing:.08em;color:var(--MEDIUM);margin-bottom:12px">Base palette</div>
+    <div class="color-grid" style="margin-bottom:20px">
+      <div class="color-chip"><div class="color-swatch" style="background:#fff;border-bottom:1px solid #e0e0e0"></div><div class="color-info"><div class="color-name">WHITE</div><div class="color-val">#fff</div></div></div>
+      <div class="color-chip"><div class="color-swatch" style="background:#e0e0e0"></div><div class="color-info"><div class="color-name">LIGHT</div><div class="color-val">#e0e0e0</div></div></div>
+      <div class="color-chip"><div class="color-swatch" style="background:#a4a4a4"></div><div class="color-info"><div class="color-name">MEDIUM</div><div class="color-val">#a4a4a4</div></div></div>
+      <div class="color-chip"><div class="color-swatch" style="background:#535353"></div><div class="color-info"><div class="color-name">DARK</div><div class="color-val">#535353</div></div></div>
+      <div class="color-chip"><div class="color-swatch" style="background:#000"></div><div class="color-info"><div class="color-name">BLACK</div><div class="color-val">#000</div></div></div>
     </div>
-    <div style="font-size:1.1rem;text-transform:uppercase;letter-spacing:.1em;color:var(--text-dim);margin-bottom:14px">Text</div>
-    <div class="color-grid" style="margin-bottom:24px">
-      <div class="color-chip"><div class="color-swatch" style="background:#e0e0e0"></div><div class="color-info"><div class="color-name">Text</div><div class="color-val">--text</div></div></div>
-      <div class="color-chip"><div class="color-swatch" style="background:#a4a4a4"></div><div class="color-info"><div class="color-name">Muted</div><div class="color-val">--text-muted</div></div></div>
-      <div class="color-chip"><div class="color-swatch" style="background:#535353"></div><div class="color-info"><div class="color-name">Dim</div><div class="color-val">--text-dim</div></div></div>
-    </div>
-    <div style="font-size:1.1rem;text-transform:uppercase;letter-spacing:.1em;color:var(--text-dim);margin-bottom:14px">Accent & Status</div>
+    <div style="font-size:1.1rem;text-transform:uppercase;letter-spacing:.08em;color:var(--MEDIUM);margin-bottom:12px">Accent</div>
     <div class="color-grid">
-      <div class="color-chip"><div class="color-swatch" style="background:#ff115c"></div><div class="color-info"><div class="color-name">Accent</div><div class="color-val">--accent</div></div></div>
-      <div class="color-chip"><div class="color-swatch" style="background:#00ff9b"></div><div class="color-info"><div class="color-name">Success</div><div class="color-val">--success</div></div></div>
-      <div class="color-chip"><div class="color-swatch" style="background:#ff9b00"></div><div class="color-info"><div class="color-name">Warning</div><div class="color-val">--warning</div></div></div>
-      <div class="color-chip"><div class="color-swatch" style="background:#ff2c2c"></div><div class="color-info"><div class="color-name">Error</div><div class="color-val">--error</div></div></div>
-      <div class="color-chip"><div class="color-swatch" style="background:#009bff"></div><div class="color-info"><div class="color-name">Info</div><div class="color-val">--info</div></div></div>
+      <div class="color-chip"><div class="color-swatch" style="background:#ff115c"></div><div class="color-info"><div class="color-name">RED</div><div class="color-val">#ff115c</div></div></div>
+      <div class="color-chip"><div class="color-swatch" style="background:#00ff9b"></div><div class="color-info"><div class="color-name">GREEN</div><div class="color-val">#00ff9b</div></div></div>
+      <div class="color-chip"><div class="color-swatch" style="background:#009bff"></div><div class="color-info"><div class="color-name">BLUE</div><div class="color-val">#009bff</div></div></div>
+      <div class="color-chip"><div class="color-swatch" style="background:#0040ff"></div><div class="color-info"><div class="color-name">BLUE-DARK</div><div class="color-val">#0040ff</div></div></div>
+      <div class="color-chip"><div class="color-swatch" style="background:#ff9b00"></div><div class="color-info"><div class="color-name">ORANGE</div><div class="color-val">#ff9b00</div></div></div>
     </div>
   </div>
 </section>
 
-<!-- ── Typography ── -->
+<!-- Typography -->
 <section id="typography" class="sc">
   <h2 class="sc-title">Typography</h2>
-  <p class="sc-desc">Roboto Condensed — primary typeface. Base <code>font-size: 62.5%</code> → 1rem = 10px.</p>
+  <p class="sc-desc">Roboto Condensed. Base <code>font-size: 62.5%</code> on html — 1rem = 10px.</p>
   <div class="demo">
     <div class="typo-row">
-      <div class="typo-item"><span class="typo-lbl">h1</span><h1 style="font-size:4.8rem">Heading One</h1></div>
-      <div class="typo-item"><span class="typo-lbl">h2</span><h2 style="font-size:3.2rem">Heading Two</h2></div>
-      <div class="typo-item"><span class="typo-lbl">h3</span><h3>Heading Three</h3></div>
-      <div class="typo-item"><span class="typo-lbl">h4</span><h4>Heading Four</h4></div>
-      <div class="typo-item"><span class="typo-lbl">h5</span><h5>Heading Five</h5></div>
-      <div class="typo-item"><span class="typo-lbl">h6</span><h6>Heading Six</h6></div>
-      <hr class="divider">
-      <div class="typo-item"><span class="typo-lbl">.lead</span><p class="lead">Lead paragraph — larger muted text for intros.</p></div>
-      <div class="typo-item"><span class="typo-lbl">p</span><p>Regular paragraph. The quick brown fox jumps over the lazy dog.</p></div>
-      <div class="typo-item"><span class="typo-lbl">small</span><small>Small helper text and captions.</small></div>
-      <div class="typo-item"><span class="typo-lbl">a</span><a href="#">Hyperlink — accent color on hover</a></div>
+      <div class="typo-item"><span class="typo-lbl">h1</span><h1 style="font-size:4.8em;margin:0">Heading One</h1></div>
+      <div class="typo-item"><span class="typo-lbl">h2</span><h2 style="margin:0">Heading Two</h2></div>
+      <div class="typo-item"><span class="typo-lbl">h3</span><h3 style="margin:0">Heading Three</h3></div>
+      <div class="typo-item"><span class="typo-lbl">h4</span><h4>Heading Four — 700</h4></div>
+      <div class="typo-item"><span class="typo-lbl">h5</span><h5>Heading Five — 400</h5></div>
+      <div class="typo-item"><span class="typo-lbl">h6</span><h6>Heading Six — 300 italic</h6></div>
+      <hr style="border:none;border-top:1px solid var(--LIGHT)">
+      <div class="typo-item"><span class="typo-lbl">p</span><p style="margin:0">Regular paragraph. The quick brown fox jumps over the lazy dog.</p></div>
+      <div class="typo-item"><span class="typo-lbl">a</span><a href="#">Link — BLUE color, underline on hover</a></div>
       <div class="typo-item"><span class="typo-lbl">code</span><code>inline_code("example")</code></div>
       <div class="typo-item" style="align-items:flex-start">
         <span class="typo-lbl" style="padding-top:4px">pre</span>
-        <pre style="flex:1">function render(el) {
+        <pre style="flex:1;margin:0">function render(el) {
   return el.outerHTML;
 }</pre>
       </div>
@@ -306,17 +339,119 @@
   </div>
 </section>
 
-<!-- ── Buttons ── -->
+<!-- Grid -->
+<section id="grid" class="sc">
+  <h2 class="sc-title">Grid</h2>
+  <p class="sc-desc">8 columns × 190px, 16px gap. Responsive breakpoints match owo exactly.</p>
+  <div class="demo">
+    <div style="font-size:1.3rem;color:var(--MEDIUM);margin-bottom:16px;font-family:'Roboto Mono',monospace">
+      1680px → 6 col &nbsp;·&nbsp; 1268px → 4 col &nbsp;·&nbsp; 858px → 3 col &nbsp;·&nbsp; 650px → 2 col &nbsp;·&nbsp; 444px → 2×1fr &nbsp;·&nbsp; 360px → 1 col
+    </div>
+    <!-- mini grid demo -->
+    <div style="display:grid;grid-template-columns:repeat(8,1fr);gap:4px;font-size:1.2rem;text-align:center">
+      <div style="background:var(--RED);color:var(--WHITE);padding:12px 4px">1</div>
+      <div style="background:var(--LIGHT);color:var(--DARK);padding:12px 4px">2</div>
+      <div style="background:var(--LIGHT);color:var(--DARK);padding:12px 4px">3</div>
+      <div style="background:var(--LIGHT);color:var(--DARK);padding:12px 4px">4</div>
+      <div style="background:var(--LIGHT);color:var(--DARK);padding:12px 4px">5</div>
+      <div style="background:var(--LIGHT);color:var(--DARK);padding:12px 4px">6</div>
+      <div style="background:var(--LIGHT);color:var(--DARK);padding:12px 4px">7</div>
+      <div style="background:var(--LIGHT);color:var(--DARK);padding:12px 4px">8</div>
+    </div>
+    <div style="margin-top:12px;display:grid;grid-template-columns:repeat(8,1fr);gap:4px;font-size:1.2rem">
+      <div style="grid-column:1/4;background:var(--LIGHT);padding:8px;color:var(--DARK);text-align:center">.grid__left-content (1→sep)</div>
+      <div style="grid-column:4/-1;background:var(--MEDIUM);padding:8px;color:var(--WHITE);text-align:center">.grid__right-content (sep→-1)</div>
+    </div>
+  </div>
+  <div class="snip"><span class="tg">&lt;div</span> <span class="at">class</span>=<span class="vl">"wrapper"</span><span class="tg">&gt;</span>
+  <span class="tg">&lt;div</span> <span class="at">class</span>=<span class="vl">"grid"</span><span class="tg">&gt;</span>
+    <span class="tg">&lt;div</span> <span class="at">class</span>=<span class="vl">"grid__left-content"</span><span class="tg">&gt;</span>…<span class="tg">&lt;/div&gt;</span>
+    <span class="tg">&lt;div</span> <span class="at">class</span>=<span class="vl">"grid__right-content"</span><span class="tg">&gt;</span>…<span class="tg">&lt;/div&gt;</span>
+  <span class="tg">&lt;/div&gt;</span>
+<span class="tg">&lt;/div&gt;</span></div>
+</section>
+
+<!-- Border utilities -->
+<section id="border" class="sc">
+  <h2 class="sc-title">Borders</h2>
+  <p class="sc-desc">Three utility classes from owo. Hover to see the transition.</p>
+  <div class="demo">
+    <div class="demo-row" style="align-items:stretch;gap:var(--GRID-GAP)">
+      <div class="border" style="padding:16px;flex:1;font-size:1.4rem;color:var(--DARK)">
+        <div style="font-weight:700;margin-bottom:4px">.border</div>
+        <div style="color:var(--MEDIUM);font-size:1.3rem">LIGHT → DARK on hover</div>
+      </div>
+      <div class="border_light" style="padding:16px;flex:1;font-size:1.4rem;color:var(--DARK)">
+        <div style="font-weight:700;margin-bottom:4px">.border_light</div>
+        <div style="color:var(--MEDIUM);font-size:1.3rem">LIGHT → WHITE on hover</div>
+      </div>
+      <div class="border_dashed" style="padding:16px;flex:1;font-size:1.4rem;color:var(--DARK)">
+        <div style="font-weight:700;margin-bottom:4px">.border_dashed</div>
+        <div style="color:var(--MEDIUM);font-size:1.3rem">dashed LIGHT → solid DARK</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Card — media (owo) -->
+<section id="card-media" class="sc">
+  <h2 class="sc-title">Card — media</h2>
+  <p class="sc-desc">owo's original card. 288px fixed height, absolute text overlay. Uses <code>.border_light</code>.</p>
+  <div class="demo">
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,190px);gap:var(--GRID-GAP)">
+
+      <!-- card with image -->
+      <a class="card__wrapper border_light" href="#" style="text-decoration:none">
+        <picture class="card__cover-container">
+          <img class="card__img" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='190' height='288'%3E%3Crect width='190' height='288' fill='%23e0e0e0'/%3E%3Crect x='0' y='180' width='190' height='108' fill='%23535353' opacity='.18'/%3E%3Ctext x='95' y='140' text-anchor='middle' font-family='sans-serif' font-size='13' fill='%23a4a4a4'%3Ecover%3C/text%3E%3C/svg%3E" alt="cover">
+        </picture>
+        <div class="card__text-container">
+          <h4 class="card__text-header">Title</h4>
+          <h6>subtitle</h6>
+        </div>
+      </a>
+
+      <!-- card without image (color bg) -->
+      <a class="card__wrapper border_light" href="#" style="text-decoration:none;background:var(--LIGHT)">
+        <div class="card__text-container">
+          <h4 class="card__text-header">No cover</h4>
+          <h6>with background</h6>
+        </div>
+      </a>
+
+      <!-- card accent -->
+      <a class="card__wrapper border_light" href="#" style="text-decoration:none;background:var(--RED)">
+        <div class="card__text-container" style="color:var(--WHITE)">
+          <h4 class="card__text-header">Accent</h4>
+          <h6 style="color:rgba(255,255,255,.7)">red background</h6>
+        </div>
+      </a>
+
+    </div>
+  </div>
+  <div class="snip"><span class="tg">&lt;a</span> <span class="at">class</span>=<span class="vl">"card__wrapper border_light"</span> <span class="at">href</span>=<span class="vl">"/path"</span><span class="tg">&gt;</span>
+  <span class="tg">&lt;picture</span> <span class="at">class</span>=<span class="vl">"card__cover-container"</span><span class="tg">&gt;</span>
+    <span class="tg">&lt;img</span> <span class="at">src</span>=<span class="vl">"cover.jpg"</span> <span class="at">class</span>=<span class="vl">"card__img"</span> <span class="at">alt</span>=<span class="vl">"cover"</span><span class="tg">&gt;</span>
+  <span class="tg">&lt;/picture&gt;</span>
+  <span class="tg">&lt;div</span> <span class="at">class</span>=<span class="vl">"card__text-container"</span><span class="tg">&gt;</span>
+    <span class="tg">&lt;h4</span> <span class="at">class</span>=<span class="vl">"card__text-header"</span><span class="tg">&gt;</span>Title<span class="tg">&lt;/h4&gt;</span>
+  <span class="tg">&lt;/div&gt;</span>
+<span class="tg">&lt;/a&gt;</span></div>
+</section>
+
+<hr class="sc-sep">
+
+<!-- Buttons -->
 <section id="buttons" class="sc">
   <h2 class="sc-title">Buttons</h2>
-  <p class="sc-desc">Class <code>.btn</code> + variant. Sizes: <code>.btn-sm</code> · <code>.btn-lg</code>. Disabled via attribute.</p>
+  <p class="sc-desc"><code>.btn</code> + variant. Sizes: <code>.btn-sm</code> · <code>.btn-lg</code>. Disabled via attribute.</p>
   <div class="demo">
     <div class="demo-row">
       <button class="btn btn-primary">Primary</button>
-      <button class="btn btn-secondary">Secondary</button>
+      <button class="btn btn-default">Default</button>
       <button class="btn btn-ghost">Ghost</button>
-      <button class="btn btn-outline">Outline</button>
       <button class="btn btn-danger">Danger</button>
+      <button class="btn btn-blue">Blue</button>
     </div>
     <div class="demo-row">
       <button class="btn btn-primary btn-sm">Small</button>
@@ -325,52 +460,48 @@
     </div>
     <div class="demo-row">
       <button class="btn btn-primary" disabled>Primary</button>
-      <button class="btn btn-secondary" disabled>Secondary</button>
+      <button class="btn btn-default" disabled>Default</button>
       <button class="btn btn-ghost" disabled>Ghost</button>
-      <span style="font-size:1.2rem;color:var(--text-dim)">disabled</span>
+      <span style="font-size:1.2rem;color:var(--MEDIUM)">— disabled</span>
     </div>
     <div class="demo-row">
       <button class="btn btn-primary">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
         Download
       </button>
-      <button class="btn btn-secondary">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-        Info
-      </button>
-      <button class="btn btn-outline">
+      <button class="btn btn-default">
         <div class="spinner spinner-sm"></div>
-        Loading…
+        Loading
       </button>
     </div>
   </div>
   <div class="snip"><span class="tg">&lt;button</span> <span class="at">class</span>=<span class="vl">"btn btn-primary"</span><span class="tg">&gt;</span>Save<span class="tg">&lt;/button&gt;</span>
-<span class="tg">&lt;button</span> <span class="at">class</span>=<span class="vl">"btn btn-secondary btn-sm"</span><span class="tg">&gt;</span>Cancel<span class="tg">&lt;/button&gt;</span>
+<span class="tg">&lt;button</span> <span class="at">class</span>=<span class="vl">"btn btn-default btn-sm"</span><span class="tg">&gt;</span>Cancel<span class="tg">&lt;/button&gt;</span>
 <span class="tg">&lt;button</span> <span class="at">class</span>=<span class="vl">"btn btn-danger"</span> <span class="at">disabled</span><span class="tg">&gt;</span>Delete<span class="tg">&lt;/button&gt;</span></div>
 </section>
 
-<!-- ── Inputs ── -->
+<!-- Inputs -->
 <section id="inputs" class="sc">
   <h2 class="sc-title">Inputs</h2>
-  <p class="sc-desc">Text inputs with states. Wrap with <code>.form-group</code> for label + hint layout.</p>
+  <p class="sc-desc">Hover → DARK border. Focus → BLUE border. Wrap with <code>.form-group</code>.</p>
   <div class="demo">
-    <div class="demo-col" style="max-width:420px">
+    <div class="demo-col" style="max-width:380px">
       <div class="form-group">
         <label class="form-label">Default</label>
-        <input type="text" class="input" placeholder="Placeholder text…">
+        <input type="text" class="input" placeholder="Placeholder…">
       </div>
       <div class="form-group">
         <label class="form-label">With hint</label>
         <input type="text" class="input" value="Some value">
-        <span class="form-hint">Helper text lives here.</span>
+        <span class="form-hint">Helper text below the field.</span>
       </div>
       <div class="form-group">
-        <label class="form-label">Error state</label>
+        <label class="form-label">Error</label>
         <input type="email" class="input input--error" value="bad-email">
         <span class="form-error">Enter a valid email address.</span>
       </div>
       <div class="form-group">
-        <label class="form-label">Success state</label>
+        <label class="form-label">Success</label>
         <input type="text" class="input input--success" value="Valid value">
       </div>
       <div class="form-group">
@@ -379,58 +510,48 @@
       </div>
       <div class="form-group">
         <label class="form-label">Password</label>
-        <input type="password" class="input" value="s3cr3t">
-      </div>
-      <div class="form-group">
-        <label class="form-label">Search</label>
-        <input type="search" class="input" placeholder="Type to search…">
-      </div>
-      <div class="form-group">
-        <label class="form-label">Number</label>
-        <input type="number" class="input" value="42">
+        <input type="password" class="input" value="secret123">
       </div>
     </div>
-    <div style="margin-top:24px">
-      <div class="form-label" style="margin-bottom:12px">Sizes</div>
-      <div class="demo-col" style="max-width:420px;gap:8px">
-        <input type="text" class="input input-sm" placeholder="Small (.input-sm)">
-        <input type="text" class="input" placeholder="Default (.input)">
-        <input type="text" class="input input-lg" placeholder="Large (.input-lg)">
+    <div style="margin-top:20px">
+      <div class="form-label" style="margin-bottom:10px">Sizes</div>
+      <div class="demo-col" style="max-width:380px;gap:6px">
+        <input class="input input-sm" placeholder="Small">
+        <input class="input" placeholder="Default">
+        <input class="input input-lg" placeholder="Large">
       </div>
     </div>
   </div>
   <div class="snip"><span class="tg">&lt;div</span> <span class="at">class</span>=<span class="vl">"form-group"</span><span class="tg">&gt;</span>
   <span class="tg">&lt;label</span> <span class="at">class</span>=<span class="vl">"form-label"</span><span class="tg">&gt;</span>Email<span class="tg">&lt;/label&gt;</span>
   <span class="tg">&lt;input</span> <span class="at">type</span>=<span class="vl">"email"</span> <span class="at">class</span>=<span class="vl">"input"</span> <span class="at">placeholder</span>=<span class="vl">"you@example.com"</span><span class="tg">&gt;</span>
-  <span class="tg">&lt;span</span> <span class="at">class</span>=<span class="vl">"form-hint"</span><span class="tg">&gt;</span>We won't spam.<span class="tg">&lt;/span&gt;</span>
 <span class="tg">&lt;/div&gt;</span></div>
 </section>
 
-<!-- ── Textarea ── -->
+<!-- Textarea -->
 <section id="textarea" class="sc">
   <h2 class="sc-title">Textarea</h2>
-  <p class="sc-desc">Multiline text input, vertically resizable.</p>
+  <p class="sc-desc">Multiline. Resizable vertically.</p>
   <div class="demo">
-    <div class="demo-col" style="max-width:500px">
+    <div class="demo-col" style="max-width:480px">
       <div class="form-group">
         <label class="form-label">Message</label>
-        <textarea class="textarea" placeholder="Write your message here…"></textarea>
+        <textarea class="textarea" placeholder="Write here…"></textarea>
       </div>
       <div class="form-group">
         <label class="form-label">Disabled</label>
-        <textarea class="textarea" disabled>This textarea is read-only.</textarea>
+        <textarea class="textarea" disabled>Read only.</textarea>
       </div>
     </div>
   </div>
-  <div class="snip"><span class="tg">&lt;textarea</span> <span class="at">class</span>=<span class="vl">"textarea"</span> <span class="at">placeholder</span>=<span class="vl">"Write here…"</span><span class="tg">&gt;&lt;/textarea&gt;</span></div>
 </section>
 
-<!-- ── Select ── -->
+<!-- Select -->
 <section id="select" class="sc">
   <h2 class="sc-title">Select</h2>
-  <p class="sc-desc">Native <code>&lt;select&gt;</code> with custom arrow and kit styling.</p>
+  <p class="sc-desc">Native <code>&lt;select&gt;</code> with custom arrow.</p>
   <div class="demo">
-    <div class="demo-col" style="max-width:360px">
+    <div class="demo-col" style="max-width:320px">
       <div class="form-group">
         <label class="form-label">Framework</label>
         <select class="select">
@@ -442,57 +563,43 @@
         </select>
       </div>
       <div class="form-group">
-        <label class="form-label">Region</label>
-        <select class="select">
-          <option>EU West</option>
-          <option>US East</option>
-          <option>AP Southeast</option>
-        </select>
-      </div>
-      <div class="form-group">
         <label class="form-label">Disabled</label>
-        <select class="select" disabled>
-          <option>Disabled</option>
-        </select>
+        <select class="select" disabled><option>Disabled</option></select>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ── Checkbox & Radio ── -->
+<!-- Checkbox & Radio -->
 <section id="checkbox" class="sc">
   <h2 class="sc-title">Checkbox &amp; Radio</h2>
-  <p class="sc-desc">Custom-styled native controls. Wrap in <code>.checkbox</code> or <code>.radio</code> label.</p>
+  <p class="sc-desc">Flat, checked = RED fill.</p>
   <div class="demo">
     <div class="demo-row" style="align-items:flex-start;gap:48px;flex-wrap:wrap">
-      <div class="demo-col" style="gap:14px">
-        <div class="form-label">Checkboxes</div>
+      <div class="demo-col" style="gap:12px">
+        <div class="form-label">Checkbox</div>
         <label class="checkbox"><input type="checkbox"> Unchecked</label>
         <label class="checkbox"><input type="checkbox" checked> Checked</label>
         <label class="checkbox"><input type="checkbox" disabled> Disabled</label>
         <label class="checkbox"><input type="checkbox" checked disabled> Checked + disabled</label>
       </div>
-      <div class="demo-col" style="gap:14px">
-        <div class="form-label">Radio buttons</div>
+      <div class="demo-col" style="gap:12px">
+        <div class="form-label">Radio</div>
         <label class="radio"><input type="radio" name="r1"> Option A</label>
-        <label class="radio"><input type="radio" name="r1" checked> Option B (default)</label>
+        <label class="radio"><input type="radio" name="r1" checked> Option B</label>
         <label class="radio"><input type="radio" name="r1"> Option C</label>
         <label class="radio"><input type="radio" name="r1" disabled> Disabled</label>
       </div>
     </div>
   </div>
-  <div class="snip"><span class="tg">&lt;label</span> <span class="at">class</span>=<span class="vl">"checkbox"</span><span class="tg">&gt;</span>
-  <span class="tg">&lt;input</span> <span class="at">type</span>=<span class="vl">"checkbox"</span> <span class="at">checked</span><span class="tg">&gt;</span>
-  Remember me
-<span class="tg">&lt;/label&gt;</span></div>
 </section>
 
-<!-- ── Toggle ── -->
+<!-- Toggle -->
 <section id="toggle" class="sc">
   <h2 class="sc-title">Toggle</h2>
-  <p class="sc-desc">On/off switch. Hidden checkbox + custom track + thumb.</p>
+  <p class="sc-desc">Hidden checkbox + flat track + square thumb.</p>
   <div class="demo">
-    <div class="demo-col" style="gap:16px">
+    <div class="demo-col" style="gap:14px">
       <label class="toggle">
         <input type="checkbox">
         <div class="toggle__track"><div class="toggle__thumb"></div></div>
@@ -501,7 +608,7 @@
       <label class="toggle">
         <input type="checkbox" checked>
         <div class="toggle__track"><div class="toggle__thumb"></div></div>
-        Dark mode <span style="color:var(--text-dim);font-size:1.3rem">(enabled)</span>
+        Dark mode <span style="color:var(--MEDIUM);font-size:1.3rem">(on)</span>
       </label>
       <label class="toggle" style="opacity:.4;pointer-events:none">
         <input type="checkbox">
@@ -510,58 +617,53 @@
       </label>
     </div>
   </div>
-  <div class="snip"><span class="tg">&lt;label</span> <span class="at">class</span>=<span class="vl">"toggle"</span><span class="tg">&gt;</span>
-  <span class="tg">&lt;input</span> <span class="at">type</span>=<span class="vl">"checkbox"</span><span class="tg">&gt;</span>
-  <span class="tg">&lt;div</span> <span class="at">class</span>=<span class="vl">"toggle__track"</span><span class="tg">&gt;&lt;div</span> <span class="at">class</span>=<span class="vl">"toggle__thumb"</span><span class="tg">&gt;&lt;/div&gt;&lt;/div&gt;</span>
-  Label text
-<span class="tg">&lt;/label&gt;</span></div>
 </section>
 
-<!-- ── Cards ── -->
-<section id="cards" class="sc">
-  <h2 class="sc-title">Cards</h2>
-  <p class="sc-desc">Content container. Compose with <code>.card-header</code>, <code>.card-body</code>, <code>.card-footer</code>.</p>
+<!-- Card UI -->
+<section id="card-ui" class="sc">
+  <h2 class="sc-title">Card — UI</h2>
+  <p class="sc-desc">Generic content container. Same flat border as owo. Hover → DARK border.</p>
   <div class="demo">
     <div class="demo-grid">
       <div class="card">
-        <div class="card-body">
-          <div class="card-title">Simple card</div>
-          <div class="card-subtitle">Subtitle text</div>
-          <p style="margin-top:10px;font-size:1.4rem;color:var(--text-muted)">Any content lives inside <code>.card-body</code>.</p>
+        <div class="card__body">
+          <div class="card__title">Simple card</div>
+          <div class="card__subtitle">Subtitle</div>
+          <p style="margin-top:8px;font-size:1.4rem;color:var(--MEDIUM)">Any content inside <code>.card__body</code>.</p>
         </div>
       </div>
       <div class="card">
-        <div class="card-header">
-          <div class="card-title">With header</div>
+        <div class="card__header">
+          <div class="card__title">With header</div>
           <span class="badge badge-accent">New</span>
         </div>
-        <div class="card-body">
-          <p style="font-size:1.4rem;color:var(--text-muted)">Header holds title + optional badge or action.</p>
+        <div class="card__body">
+          <p style="font-size:1.4rem;color:var(--MEDIUM)">Header holds title + optional badge or action.</p>
         </div>
-        <div class="card-footer">
+        <div class="card__footer">
           <button class="btn btn-primary btn-sm">Confirm</button>
           <button class="btn btn-ghost btn-sm">Cancel</button>
         </div>
       </div>
-      <div class="card card-hover">
-        <div class="card-body">
-          <div class="card-title">Hoverable</div>
-          <p style="margin-top:8px;font-size:1.4rem;color:var(--text-muted)">Add <code>.card-hover</code> for pointer + border highlight on hover.</p>
+      <div class="card">
+        <div class="card__body">
+          <div class="card__title">Hover me</div>
+          <p style="margin-top:8px;font-size:1.4rem;color:var(--MEDIUM)">Border goes LIGHT → DARK.</p>
         </div>
       </div>
     </div>
   </div>
   <div class="snip"><span class="tg">&lt;div</span> <span class="at">class</span>=<span class="vl">"card"</span><span class="tg">&gt;</span>
-  <span class="tg">&lt;div</span> <span class="at">class</span>=<span class="vl">"card-header"</span><span class="tg">&gt;</span>Title<span class="tg">&lt;/div&gt;</span>
-  <span class="tg">&lt;div</span> <span class="at">class</span>=<span class="vl">"card-body"</span><span class="tg">&gt;</span>Content<span class="tg">&lt;/div&gt;</span>
-  <span class="tg">&lt;div</span> <span class="at">class</span>=<span class="vl">"card-footer"</span><span class="tg">&gt;</span>Footer<span class="tg">&lt;/div&gt;</span>
+  <span class="tg">&lt;div</span> <span class="at">class</span>=<span class="vl">"card__header"</span><span class="tg">&gt;</span>…<span class="tg">&lt;/div&gt;</span>
+  <span class="tg">&lt;div</span> <span class="at">class</span>=<span class="vl">"card__body"</span><span class="tg">&gt;</span>…<span class="tg">&lt;/div&gt;</span>
+  <span class="tg">&lt;div</span> <span class="at">class</span>=<span class="vl">"card__footer"</span><span class="tg">&gt;</span>…<span class="tg">&lt;/div&gt;</span>
 <span class="tg">&lt;/div&gt;</span></div>
 </section>
 
-<!-- ── Badges ── -->
+<!-- Badges -->
 <section id="badges" class="sc">
   <h2 class="sc-title">Badges</h2>
-  <p class="sc-desc">Inline status labels. Add <code>.badge-dot</code> for dot prefix.</p>
+  <p class="sc-desc">Flat, 1px border, no fill. Add <code>.badge-dot</code> for dot prefix.</p>
   <div class="demo">
     <div class="demo-row">
       <span class="badge badge-default">Default</span>
@@ -576,109 +678,89 @@
       <span class="badge badge-error badge-dot">Offline</span>
       <span class="badge badge-warning badge-dot">Pending</span>
       <span class="badge badge-accent badge-dot">New</span>
-      <span class="badge badge-info badge-dot">Syncing</span>
     </div>
   </div>
-  <div class="snip"><span class="tg">&lt;span</span> <span class="at">class</span>=<span class="vl">"badge badge-accent"</span><span class="tg">&gt;</span>New<span class="tg">&lt;/span&gt;</span>
-<span class="tg">&lt;span</span> <span class="at">class</span>=<span class="vl">"badge badge-success badge-dot"</span><span class="tg">&gt;</span>Online<span class="tg">&lt;/span&gt;</span></div>
 </section>
 
-<!-- ── Tags ── -->
+<!-- Tags -->
 <section id="tags" class="sc">
   <h2 class="sc-title">Tags</h2>
-  <p class="sc-desc">Pill-shaped labels for categories and filters. <code>.tag-active</code> for selected state.</p>
+  <p class="sc-desc">Pill tags — same border system. <code>.tag-active</code> → RED.</p>
   <div class="demo">
     <div class="demo-row">
       <span class="tag">design</span>
       <span class="tag">frontend</span>
-      <span class="tag tag-active">active tag</span>
+      <span class="tag tag-active">selected</span>
       <span class="tag">motion</span>
-      <span class="tag">open source</span>
     </div>
     <div class="demo-row">
       <span class="tag">React <span class="tag-close">×</span></span>
       <span class="tag">TypeScript <span class="tag-close">×</span></span>
       <span class="tag tag-active">CSS <span class="tag-close">×</span></span>
-      <span class="tag">Node.js <span class="tag-close">×</span></span>
     </div>
   </div>
 </section>
 
-<!-- ── Alerts ── -->
+<!-- Alerts -->
 <section id="alerts" class="sc">
   <h2 class="sc-title">Alerts</h2>
-  <p class="sc-desc">Contextual inline messages. Use <code>.alert-title</code> inside for a bold heading.</p>
+  <p class="sc-desc">White background, colored 1px border.</p>
   <div class="demo">
-    <div class="demo-col" style="gap:10px">
-      <div class="alert alert-default">
-        <span class="alert-icon">ℹ</span>
-        <div><div class="alert-title">Note</div>A neutral informational message for general context.</div>
-      </div>
-      <div class="alert alert-success">
-        <span class="alert-icon">✓</span>
-        <div><div class="alert-title">Success</div>Your changes have been saved successfully.</div>
-      </div>
-      <div class="alert alert-warning">
-        <span class="alert-icon">⚠</span>
-        <div><div class="alert-title">Warning</div>This action will affect all connected services.</div>
-      </div>
-      <div class="alert alert-error">
-        <span class="alert-icon">✕</span>
-        <div><div class="alert-title">Error</div>Failed to process the request. Please try again.</div>
-      </div>
-      <div class="alert alert-info">
-        <span class="alert-icon">◎</span>
-        <div><div class="alert-title">Update available</div>Version 1.2.0 is ready. Refresh to apply.</div>
-      </div>
+    <div class="demo-col" style="gap:8px">
+      <div class="alert alert-default"><span class="alert-icon">ℹ</span><div><div class="alert-title">Note</div>A neutral informational message.</div></div>
+      <div class="alert alert-success"><span class="alert-icon">✓</span><div><div class="alert-title">Success</div>Changes saved successfully.</div></div>
+      <div class="alert alert-warning"><span class="alert-icon">⚠</span><div><div class="alert-title">Warning</div>This affects all connected services.</div></div>
+      <div class="alert alert-error"><span class="alert-icon">✕</span><div><div class="alert-title">Error</div>Failed to process. Please retry.</div></div>
+      <div class="alert alert-info"><span class="alert-icon">◎</span><div><div class="alert-title">Update</div>Version 1.2.0 is ready.</div></div>
     </div>
   </div>
 </section>
 
-<!-- ── Progress ── -->
+<!-- Progress -->
 <section id="progress" class="sc">
   <h2 class="sc-title">Progress</h2>
-  <p class="sc-desc">Linear progress bar. Set width on <code>.progress-bar</code> inline or via JS.</p>
+  <p class="sc-desc">LIGHT track. Colored fill bar.</p>
   <div class="demo">
-    <div class="demo-col" style="gap:20px">
+    <div class="demo-col" style="gap:16px">
       <div>
-        <div style="display:flex;justify-content:space-between;font-size:1.2rem;color:var(--text-muted);margin-bottom:8px"><span>Accent</span><span>67%</span></div>
+        <div style="display:flex;justify-content:space-between;font-size:1.2rem;color:var(--MEDIUM);margin-bottom:6px"><span>Accent (RED)</span><span>67%</span></div>
         <div class="progress"><div class="progress-bar" style="width:67%"></div></div>
       </div>
       <div>
-        <div style="display:flex;justify-content:space-between;font-size:1.2rem;color:var(--text-muted);margin-bottom:8px"><span>Success</span><span>100%</span></div>
+        <div style="display:flex;justify-content:space-between;font-size:1.2rem;color:var(--MEDIUM);margin-bottom:6px"><span>Success</span><span>100%</span></div>
         <div class="progress progress-success"><div class="progress-bar" style="width:100%"></div></div>
       </div>
       <div>
-        <div style="display:flex;justify-content:space-between;font-size:1.2rem;color:var(--text-muted);margin-bottom:8px"><span>Warning</span><span>42%</span></div>
+        <div style="display:flex;justify-content:space-between;font-size:1.2rem;color:var(--MEDIUM);margin-bottom:6px"><span>Warning</span><span>42%</span></div>
         <div class="progress progress-warning"><div class="progress-bar" style="width:42%"></div></div>
       </div>
       <div>
-        <div style="display:flex;justify-content:space-between;font-size:1.2rem;color:var(--text-muted);margin-bottom:8px"><span>Info</span><span>85%</span></div>
+        <div style="display:flex;justify-content:space-between;font-size:1.2rem;color:var(--MEDIUM);margin-bottom:6px"><span>Info</span><span>85%</span></div>
         <div class="progress progress-info"><div class="progress-bar" style="width:85%"></div></div>
       </div>
       <div>
-        <div style="font-size:1.2rem;color:var(--text-muted);margin-bottom:8px">Large track (.progress-lg)</div>
+        <div style="font-size:1.2rem;color:var(--MEDIUM);margin-bottom:6px">.progress-lg (8px)</div>
         <div class="progress progress-lg"><div class="progress-bar" style="width:55%"></div></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ── Range ── -->
+<!-- Range -->
 <section id="range" class="sc">
   <h2 class="sc-title">Range</h2>
-  <p class="sc-desc">Styled <code>&lt;input type="range"&gt;</code> with accent thumb.</p>
+  <p class="sc-desc">LIGHT track, RED thumb. Square thumb, no border-radius.</p>
   <div class="demo">
-    <div class="demo-col" style="gap:20px;max-width:500px">
+    <div class="demo-col" style="gap:16px;max-width:480px">
       <div>
-        <div class="form-label" style="margin-bottom:12px">Hue — 0…360</div>
+        <div class="form-label" style="margin-bottom:10px">Hue 0–360</div>
         <div class="range-row">
           <input type="range" class="range" min="0" max="360" value="180" oninput="this.nextElementSibling.textContent=this.value" style="flex:1">
           <span class="range-val">180</span>
         </div>
       </div>
       <div>
-        <div class="form-label" style="margin-bottom:12px">Saturation — 0…100</div>
+        <div class="form-label" style="margin-bottom:10px">Saturation 0–100</div>
         <div class="range-row">
           <input type="range" class="range" min="0" max="100" value="65" oninput="this.nextElementSibling.textContent=this.value" style="flex:1">
           <span class="range-val">65</span>
@@ -688,51 +770,40 @@
   </div>
 </section>
 
-<!-- ── Tables ── -->
+<!-- Tables -->
 <section id="tables" class="sc">
   <h2 class="sc-title">Tables</h2>
-  <p class="sc-desc">Structured data. Wrap in <code>.table-wrapper</code> for horizontal scroll on small screens.</p>
-  <div class="demo" style="padding:0;overflow:hidden">
+  <p class="sc-desc">Flat. Hover row → LIGHT background.</p>
+  <div class="demo" style="padding:0">
     <div class="table-wrapper">
       <table class="table">
         <thead>
-          <tr>
-            <th>Token</th>
-            <th>Type</th>
-            <th>Value</th>
-            <th>Status</th>
-          </tr>
+          <tr><th>Token</th><th>Type</th><th>Value</th><th>Status</th></tr>
         </thead>
         <tbody>
           <tr>
-            <td><code>--accent</code></td>
+            <td><code>--RED</code></td>
             <td><span class="badge badge-info">color</span></td>
-            <td><span class="font-mono text-muted">#ff115c</span></td>
+            <td><span class="font-mono text-medium">#ff115c</span></td>
             <td><span class="badge badge-success badge-dot">Stable</span></td>
           </tr>
           <tr>
-            <td><code>--radius</code></td>
-            <td><span class="badge badge-info">size</span></td>
-            <td><span class="font-mono text-muted">4px</span></td>
-            <td><span class="badge badge-success badge-dot">Stable</span></td>
-          </tr>
-          <tr>
-            <td><code>--font</code></td>
-            <td><span class="badge badge-info">font</span></td>
-            <td><span class="font-mono text-muted">Roboto Condensed</span></td>
-            <td><span class="badge badge-success badge-dot">Stable</span></td>
-          </tr>
-          <tr>
-            <td><code>--transition</code></td>
-            <td><span class="badge badge-info">time</span></td>
-            <td><span class="font-mono text-muted">0.15s ease</span></td>
-            <td><span class="badge badge-warning badge-dot">Beta</span></td>
-          </tr>
-          <tr>
-            <td><code>--surface-2</code></td>
+            <td><code>--LIGHT</code></td>
             <td><span class="badge badge-info">color</span></td>
-            <td><span class="font-mono text-muted">#222222</span></td>
+            <td><span class="font-mono text-medium">#e0e0e0</span></td>
             <td><span class="badge badge-success badge-dot">Stable</span></td>
+          </tr>
+          <tr>
+            <td><code>--GRID-GAP</code></td>
+            <td><span class="badge badge-default">size</span></td>
+            <td><span class="font-mono text-medium">16px</span></td>
+            <td><span class="badge badge-success badge-dot">Stable</span></td>
+          </tr>
+          <tr>
+            <td><code>--CARD-HEIGHT</code></td>
+            <td><span class="badge badge-default">size</span></td>
+            <td><span class="font-mono text-medium">288px</span></td>
+            <td><span class="badge badge-warning badge-dot">Fixed</span></td>
           </tr>
         </tbody>
       </table>
@@ -740,31 +811,27 @@
   </div>
 </section>
 
-<!-- ── Tabs ── -->
+<!-- Tabs -->
 <section id="tabs" class="sc">
   <h2 class="sc-title">Tabs</h2>
-  <p class="sc-desc">Horizontal navigation. Toggle <code>.active</code> on <code>.tab-item</code>.</p>
+  <p class="sc-desc">Flat bottom border. Active → BLACK underline.</p>
   <div class="demo">
     <div class="tabs" id="demo-tabs">
-      <button class="btn tab-item active">Overview</button>
-      <button class="btn tab-item">Components</button>
-      <button class="btn tab-item">Tokens</button>
-      <button class="btn tab-item">Changelog</button>
+      <button class="tab-item active">Overview</button>
+      <button class="tab-item">Components</button>
+      <button class="tab-item">Tokens</button>
+      <button class="tab-item">Changelog</button>
     </div>
-    <div style="padding:20px 0;font-size:1.4rem;color:var(--text-muted)">Active tab content area</div>
+    <div style="padding:16px 0;font-size:1.4rem;color:var(--MEDIUM)">Tab content area</div>
   </div>
-  <div class="snip"><span class="tg">&lt;div</span> <span class="at">class</span>=<span class="vl">"tabs"</span><span class="tg">&gt;</span>
-  <span class="tg">&lt;button</span> <span class="at">class</span>=<span class="vl">"btn tab-item active"</span><span class="tg">&gt;</span>Tab 1<span class="tg">&lt;/button&gt;</span>
-  <span class="tg">&lt;button</span> <span class="at">class</span>=<span class="vl">"btn tab-item"</span><span class="tg">&gt;</span>Tab 2<span class="tg">&lt;/button&gt;</span>
-<span class="tg">&lt;/div&gt;</span></div>
 </section>
 
-<!-- ── Avatars ── -->
+<!-- Avatars -->
 <section id="avatars" class="sc">
   <h2 class="sc-title">Avatars</h2>
-  <p class="sc-desc">User placeholders. Sizes: <code>-sm</code> · <code>-md</code> · <code>-lg</code> · <code>-xl</code>.</p>
+  <p class="sc-desc">LIGHT fill, flat border. <code>.avatar-accent</code> → RED border.</p>
   <div class="demo">
-    <div class="demo-row" style="align-items:flex-end;margin-bottom:20px">
+    <div class="demo-row" style="align-items:flex-end;margin-bottom:16px">
       <div class="avatar avatar-sm">XS</div>
       <div class="avatar avatar-md">MD</div>
       <div class="avatar avatar-lg">LG</div>
@@ -773,45 +840,44 @@
     <div class="demo-row">
       <div class="avatar avatar-md">AB</div>
       <div class="avatar avatar-md avatar-accent">IW</div>
-      <div class="avatar avatar-md" style="background:rgba(0,155,255,.12);color:#009bff;border-color:#009bff">CD</div>
-      <div class="avatar avatar-md" style="background:rgba(0,255,155,.12);color:#00ff9b;border-color:#00ff9b">EF</div>
-      <div class="avatar avatar-md" style="background:rgba(255,155,0,.12);color:#ff9b00;border-color:#ff9b00">GH</div>
+      <div class="avatar avatar-md" style="background:var(--WHITE);color:var(--BLUE);border-color:var(--BLUE)">CD</div>
+      <div class="avatar avatar-md" style="background:var(--WHITE);color:var(--ORANGE);border-color:var(--ORANGE)">EF</div>
     </div>
   </div>
 </section>
 
-<!-- ── Toast ── -->
+<!-- Toast -->
 <section id="toast" class="sc">
   <h2 class="sc-title">Toast</h2>
-  <p class="sc-desc">Non-blocking notification messages. Left border indicates type.</p>
+  <p class="sc-desc">White background, LIGHT border, thick left accent.</p>
   <div class="demo">
-    <div class="demo-col" style="gap:10px;max-width:420px">
+    <div class="demo-col" style="gap:8px;max-width:400px">
       <div class="toast toast-accent">
         <div style="flex:1"><div class="toast-title">Build complete</div><div class="toast-body">2 artifacts compiled in 1.23s.</div></div>
         <span class="toast-close" onclick="this.closest('.toast').style.display='none'">×</span>
       </div>
       <div class="toast toast-success">
-        <div style="flex:1"><div class="toast-title">Saved</div><div class="toast-body">All changes have been persisted.</div></div>
+        <div style="flex:1"><div class="toast-title">Saved</div><div class="toast-body">All changes persisted.</div></div>
         <span class="toast-close" onclick="this.closest('.toast').style.display='none'">×</span>
       </div>
       <div class="toast toast-warning">
-        <div style="flex:1"><div class="toast-title">Rate limit</div><div class="toast-body">Slow down — 3 requests remaining.</div></div>
+        <div style="flex:1"><div class="toast-title">Rate limit</div><div class="toast-body">3 requests remaining.</div></div>
         <span class="toast-close" onclick="this.closest('.toast').style.display='none'">×</span>
       </div>
       <div class="toast toast-error">
-        <div style="flex:1"><div class="toast-title">Connection lost</div><div class="toast-body">Reconnecting in 5 seconds…</div></div>
+        <div style="flex:1"><div class="toast-title">Connection lost</div><div class="toast-body">Reconnecting in 5s…</div></div>
         <span class="toast-close" onclick="this.closest('.toast').style.display='none'">×</span>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ── Breadcrumbs ── -->
+<!-- Breadcrumbs -->
 <section id="breadcrumbs" class="sc">
   <h2 class="sc-title">Breadcrumbs</h2>
-  <p class="sc-desc">Navigation trail. Last item is non-linked current page.</p>
+  <p class="sc-desc">MEDIUM color, last item DARK. Hover → BLUE + underline (owo link style).</p>
   <div class="demo">
-    <div class="demo-col" style="gap:16px">
+    <div class="demo-col" style="gap:14px">
       <nav class="breadcrumbs">
         <span class="breadcrumb-item"><a href="#">Home</a></span>
         <span class="breadcrumb-sep">/</span>
@@ -824,125 +890,86 @@
         <span class="breadcrumb-sep">›</span>
         <span class="breadcrumb-item"><a href="#">ui-kit</a></span>
         <span class="breadcrumb-sep">›</span>
-        <span class="breadcrumb-item"><a href="#">components</a></span>
-        <span class="breadcrumb-sep">›</span>
-        <span class="breadcrumb-item">breadcrumb</span>
+        <span class="breadcrumb-item">index</span>
       </nav>
     </div>
   </div>
 </section>
 
-<!-- ── Tooltips ── -->
-<section id="tooltips" class="sc">
-  <h2 class="sc-title">Tooltips</h2>
-  <p class="sc-desc">Pure CSS hover hints. Wrap trigger in <code>.tooltip-wrapper</code>.</p>
+<!-- Tooltips, Spinners, Kbd, Divider -->
+<section id="misc" class="sc">
+  <h2 class="sc-title">Misc</h2>
+  <p class="sc-desc">Tooltip · Spinner · Kbd · Divider label</p>
   <div class="demo">
-    <div class="demo-row" style="padding-top:20px">
+
+    <div class="form-label" style="margin-bottom:12px">Tooltip (pure CSS hover)</div>
+    <div class="demo-row" style="padding-bottom:24px;margin-bottom:16px;border-bottom:1px solid var(--LIGHT)">
       <div class="tooltip-wrapper">
-        <button class="btn btn-secondary">Hover me</button>
+        <button class="btn btn-default">Hover me</button>
         <div class="tooltip">This is a tooltip</div>
       </div>
       <div class="tooltip-wrapper">
-        <button class="btn btn-primary">With accent</button>
-        <div class="tooltip" style="border-color:var(--accent);color:var(--accent)">Accent tooltip</div>
+        <button class="btn btn-primary">Hover</button>
+        <div class="tooltip">Action description</div>
       </div>
       <div class="tooltip-wrapper">
         <kbd>⌘ K</kbd>
-        <div class="tooltip">Open command palette</div>
+        <div class="tooltip">Command palette</div>
       </div>
     </div>
-  </div>
-  <div class="snip"><span class="tg">&lt;div</span> <span class="at">class</span>=<span class="vl">"tooltip-wrapper"</span><span class="tg">&gt;</span>
-  <span class="tg">&lt;button</span> <span class="at">class</span>=<span class="vl">"btn btn-secondary"</span><span class="tg">&gt;</span>Hover<span class="tg">&lt;/button&gt;</span>
-  <span class="tg">&lt;div</span> <span class="at">class</span>=<span class="vl">"tooltip"</span><span class="tg">&gt;</span>Tooltip text<span class="tg">&lt;/div&gt;</span>
-<span class="tg">&lt;/div&gt;</span></div>
-</section>
 
-<!-- ── Spinners ── -->
-<section id="spinners" class="sc">
-  <h2 class="sc-title">Spinners</h2>
-  <p class="sc-desc">CSS-only loading indicator. Sizes: <code>.spinner-sm</code> · default · <code>.spinner-lg</code>.</p>
-  <div class="demo">
-    <div class="demo-row" style="align-items:center;gap:20px">
+    <div class="form-label" style="margin-bottom:12px">Spinner</div>
+    <div class="demo-row" style="align-items:center;margin-bottom:16px;padding-bottom:16px;border-bottom:1px solid var(--LIGHT)">
       <div class="spinner spinner-sm"></div>
       <div class="spinner"></div>
       <div class="spinner spinner-lg"></div>
-      <div class="spinner" style="border-top-color:var(--success)"></div>
-      <div class="spinner" style="border-top-color:var(--info)"></div>
-      <div class="spinner" style="border-top-color:var(--warning)"></div>
+      <div class="spinner" style="border-top-color:var(--BLUE)"></div>
+      <div class="spinner" style="border-top-color:var(--ORANGE)"></div>
     </div>
-  </div>
-</section>
 
-<!-- ── Code & Kbd ── -->
-<section id="code" class="sc">
-  <h2 class="sc-title">Code &amp; Kbd</h2>
-  <p class="sc-desc">Inline <code>code</code>, <code>pre</code> blocks, and <kbd>keyboard</kbd> keys.</p>
-  <div class="demo">
-    <p style="margin-bottom:16px">Run <code>git commit -m "msg"</code> then <code>git push origin main</code> to deploy.</p>
-    <pre><code>// kit.css usage example
-import 'kit.css';
-
-document.querySelector('.btn').addEventListener('click', () => {
-  console.log('clicked');
-});</code></pre>
-    <div class="demo-row" style="margin-top:20px;align-items:center">
-      <span style="font-size:1.3rem;color:var(--text-muted)">Shortcuts:</span>
+    <div class="form-label" style="margin-bottom:12px">Kbd</div>
+    <div class="demo-row" style="margin-bottom:16px;padding-bottom:16px;border-bottom:1px solid var(--LIGHT);align-items:center">
       <kbd>⌘</kbd><kbd>K</kbd>
-      <span class="text-dim" style="font-size:1.3rem">or</span>
+      <span style="color:var(--MEDIUM);font-size:1.3rem">or</span>
       <kbd>Ctrl</kbd><kbd>P</kbd>
-      <span class="text-dim" style="font-size:1.3rem">—</span>
+      <span style="color:var(--MEDIUM);font-size:1.3rem">—</span>
       <kbd>Escape</kbd>
     </div>
-  </div>
-</section>
 
-<!-- ── Dividers ── -->
-<section id="dividers" class="sc">
-  <h2 class="sc-title">Dividers</h2>
-  <p class="sc-desc">Horizontal rules and labeled separators built with flexbox.</p>
-  <div class="demo">
-    <div class="demo-col" style="gap:24px">
-      <hr class="divider">
+    <div class="form-label" style="margin-bottom:12px">Divider label</div>
+    <div class="demo-col" style="gap:16px">
       <div class="divider-label">or continue with</div>
-      <div class="divider-label" style="color:var(--accent)">section break</div>
-      <div class="divider-label" style="color:var(--text-dim)">end</div>
+      <div class="divider-label" style="color:var(--RED)">section break</div>
     </div>
+
   </div>
-  <div class="snip"><span class="tg">&lt;hr</span> <span class="at">class</span>=<span class="vl">"divider"</span><span class="tg">&gt;</span>
-<span class="tg">&lt;div</span> <span class="at">class</span>=<span class="vl">"divider-label"</span><span class="tg">&gt;</span>or<span class="tg">&lt;/div&gt;</span></div>
 </section>
 
 </div>
 </main>
 
 <script>
-  // ── Sidebar active link ──
+  // Sidebar active tracking
   const sections = Array.from(document.querySelectorAll('[id]'));
-  const links = document.querySelectorAll('.sb-link');
+  const links    = Array.from(document.querySelectorAll('.sb-link'));
 
   links.forEach(link => {
-    link.addEventListener('click', e => {
-      const id = link.dataset.target;
-      const el = document.getElementById(id);
-      if (el) {
-        window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 72, behavior: 'smooth' });
-      }
+    link.addEventListener('click', () => {
+      const el = document.getElementById(link.dataset.t);
+      if (el) window.scrollTo({ top: el.getBoundingClientRect().top + scrollY - 60, behavior: 'smooth' });
     });
   });
 
   function updateActive() {
     let current = '';
-    sections.forEach(s => {
-      if (s.getBoundingClientRect().top <= 90) current = s.id;
-    });
-    links.forEach(l => l.classList.toggle('active', l.dataset.target === current));
+    sections.forEach(s => { if (s.getBoundingClientRect().top <= 80) current = s.id; });
+    links.forEach(l => l.classList.toggle('active', l.dataset.t === current));
   }
 
   window.addEventListener('scroll', updateActive, { passive: true });
   updateActive();
 
-  // ── Tabs demo ──
+  // Tabs
   document.getElementById('demo-tabs').addEventListener('click', e => {
     const btn = e.target.closest('.tab-item');
     if (!btn) return;
