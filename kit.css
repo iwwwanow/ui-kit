@@ -1,5 +1,5 @@
 /* =====================================================
-   iwwwanow / ui-kit
+   iwwwanow / ui-kit  v0.1.0
    Based on owo — light theme, sharp corners
    ===================================================== */
 
@@ -80,7 +80,7 @@ legend { display: block; }
 /* --- Base (owo) --- */
 html { font-size: 62.5%; }
 * { font-family: "Roboto Condensed", "Helvetica Neue Condensed", sans-serif; }
-body { background: var(--WHITE); color: var(--DARK); }
+body { background: var(--WHITE); color: var(--DARK); font-size: 1.6rem; }
 
 /* -------------------------------------------------------
    TYPOGRAPHY (owo verbatim)
