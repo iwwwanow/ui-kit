@@ -424,14 +424,36 @@
   <div class="demo">
     <div style="display:grid;grid-template-columns:repeat(auto-fill,190px);gap:var(--GRID-GAP)">
 
-      <!-- card with image -->
+      <!-- card with image 1 -->
       <a class="card__wrapper border_light" href="#" style="text-decoration:none">
         <picture class="card__cover-container">
-          <img class="card__img" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='190' height='288'%3E%3Crect width='190' height='288' fill='%23e0e0e0'/%3E%3Crect x='0' y='180' width='190' height='108' fill='%23535353' opacity='.18'/%3E%3Ctext x='95' y='140' text-anchor='middle' font-family='sans-serif' font-size='13' fill='%23a4a4a4'%3Ecover%3C/text%3E%3C/svg%3E" alt="cover">
+          <img class="card__img" src="https://picsum.photos/seed/owo1/190/288" alt="cover">
         </picture>
-        <div class="card__text-container">
-          <h4 class="card__text-header">Title</h4>
-          <h6>subtitle</h6>
+        <div class="card__text-container" style="background:linear-gradient(to top,rgba(0,0,0,.6) 0%,transparent 55%);color:var(--WHITE)">
+          <h4 class="card__text-header">Architecture</h4>
+          <h6 style="color:rgba(255,255,255,.7)">urban grid</h6>
+        </div>
+      </a>
+
+      <!-- card with image 2 -->
+      <a class="card__wrapper border_light" href="#" style="text-decoration:none">
+        <picture class="card__cover-container">
+          <img class="card__img" src="https://picsum.photos/seed/owo2/190/288" alt="cover">
+        </picture>
+        <div class="card__text-container" style="background:linear-gradient(to top,rgba(0,0,0,.6) 0%,transparent 55%);color:var(--WHITE)">
+          <h4 class="card__text-header">Landscape</h4>
+          <h6 style="color:rgba(255,255,255,.7)">nature series</h6>
+        </div>
+      </a>
+
+      <!-- card with image 3 -->
+      <a class="card__wrapper border_light" href="#" style="text-decoration:none">
+        <picture class="card__cover-container">
+          <img class="card__img" src="https://picsum.photos/seed/owo3/190/288" alt="cover">
+        </picture>
+        <div class="card__text-container" style="background:linear-gradient(to top,rgba(0,0,0,.6) 0%,transparent 55%);color:var(--WHITE)">
+          <h4 class="card__text-header">Abstract</h4>
+          <h6 style="color:rgba(255,255,255,.7)">texture</h6>
         </div>
       </a>
 
@@ -439,7 +461,7 @@
       <a class="card__wrapper border_light" href="#" style="text-decoration:none;background:var(--LIGHT)">
         <div class="card__text-container">
           <h4 class="card__text-header">No cover</h4>
-          <h6>with background</h6>
+          <h6>plain background</h6>
         </div>
       </a>
 
@@ -447,18 +469,29 @@
       <a class="card__wrapper border_light" href="#" style="text-decoration:none;background:var(--RED)">
         <div class="card__text-container" style="color:var(--WHITE)">
           <h4 class="card__text-header">Accent</h4>
-          <h6 style="color:rgba(255,255,255,.7)">red background</h6>
+          <h6 style="color:rgba(255,255,255,.7)">red fill</h6>
         </div>
       </a>
 
     </div>
   </div>
-  <div class="snip"><span class="tg">&lt;a</span> <span class="at">class</span>=<span class="vl">"card__wrapper border_light"</span> <span class="at">href</span>=<span class="vl">"/path"</span><span class="tg">&gt;</span>
+  <div class="snip"><span class="kw">/* С картинкой — градиент для читаемости текста */</span>
+<span class="tg">&lt;a</span> <span class="at">class</span>=<span class="vl">"card__wrapper border_light"</span> <span class="at">href</span>=<span class="vl">"/path"</span><span class="tg">&gt;</span>
   <span class="tg">&lt;picture</span> <span class="at">class</span>=<span class="vl">"card__cover-container"</span><span class="tg">&gt;</span>
     <span class="tg">&lt;img</span> <span class="at">src</span>=<span class="vl">"cover.jpg"</span> <span class="at">class</span>=<span class="vl">"card__img"</span> <span class="at">alt</span>=<span class="vl">"cover"</span><span class="tg">&gt;</span>
   <span class="tg">&lt;/picture&gt;</span>
+  <span class="tg">&lt;div</span> <span class="at">class</span>=<span class="vl">"card__text-container"</span>
+       <span class="at">style</span>=<span class="vl">"background:linear-gradient(to top,rgba(0,0,0,.6) 0%,transparent 55%);color:#fff"</span><span class="tg">&gt;</span>
+    <span class="tg">&lt;h4</span> <span class="at">class</span>=<span class="vl">"card__text-header"</span><span class="tg">&gt;</span>Title<span class="tg">&lt;/h4&gt;</span>
+    <span class="tg">&lt;h6</span> <span class="at">style</span>=<span class="vl">"color:rgba(255,255,255,.7)"</span><span class="tg">&gt;</span>subtitle<span class="tg">&lt;/h6&gt;</span>
+  <span class="tg">&lt;/div&gt;</span>
+<span class="tg">&lt;/a&gt;</span>
+
+<span class="kw">/* Без картинки */</span>
+<span class="tg">&lt;a</span> <span class="at">class</span>=<span class="vl">"card__wrapper border_light"</span> <span class="at">href</span>=<span class="vl">"/path"</span> <span class="at">style</span>=<span class="vl">"background:var(--LIGHT)"</span><span class="tg">&gt;</span>
   <span class="tg">&lt;div</span> <span class="at">class</span>=<span class="vl">"card__text-container"</span><span class="tg">&gt;</span>
     <span class="tg">&lt;h4</span> <span class="at">class</span>=<span class="vl">"card__text-header"</span><span class="tg">&gt;</span>Title<span class="tg">&lt;/h4&gt;</span>
+    <span class="tg">&lt;h6&gt;</span>subtitle<span class="tg">&lt;/h6&gt;</span>
   <span class="tg">&lt;/div&gt;</span>
 <span class="tg">&lt;/a&gt;</span></div>
 </section>

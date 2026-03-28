@@ -263,10 +263,11 @@ hr, .hr_fieldset {
   pointer-events: none;
   user-select: none;
   color: var(--DARK);
+  font-size: 1rem; /* neutralise em compounding from parent context */
 }
 .card__text-header  { margin-bottom: 4px; }
-.card__cover-container { width: 100%; }
-.card__img { width: 100%; }
+.card__cover-container { width: 100%; height: 100%; }
+.card__img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
 @media screen and (max-width: 360px) {
   .card__wrapper { height: 214px; }
