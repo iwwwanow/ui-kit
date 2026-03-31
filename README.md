@@ -2,7 +2,7 @@
 
 Minimal dark-first component library. Design language from [owo](https://github.com/iwwwanow/owo) + [xtc-toaster](https://github.com/iwwwanow/xtc-toaster).
 
-**Preview →** https://iwwwanow.github.io/iwwwanow_ui-kit
+**Preview →** https://iwwwanow.github.io/ui-kit/
 
 ---
 
